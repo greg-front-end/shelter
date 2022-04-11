@@ -1,0 +1,61 @@
+@use '../../../main/scss/2-helpers/variables' as *;
+.friends {
+  margin-top: 120px;
+  &__wrapper {
+    margin-top: 13px;
+  }
+  &__items {
+    justify-content: space-between;
+  }
+  &__item {
+    margin-left: 0;
+    margin-right: 0;
+    &:nth-child(2) {
+      margin-left: 0;
+    }
+    &:nth-child(4) {
+      margin-right: 0;
+    }
+  }
+}
+.friends-pets {
+  &__items {
+    column-gap: 10px;
+    row-gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+.pagin {
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  &__btn {
+    border: 2px solid var(--pink);;
+    box-sizing: border-box;
+    border-radius: 100px;
+    background-color: transparent;
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
+    font-family: $Georgia;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    transition: $transition;
+    &--inactive {
+      border-color: var(--dark-s);
+    }
+    &--active {
+      background-color: var(--pink);
+    }
+    &:hover:not([disabled])  {
+      background-color: var(--pink-l);
+      border-color: var(--pink-l);
+    }
+    &:is([disabled]) {
+      cursor: not-allowed;
+    }
+  }
+}

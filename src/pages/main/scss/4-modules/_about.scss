@@ -1,0 +1,35 @@
+.about {
+  padding-top: 84px;
+  padding-bottom: 114px;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+  }
+  &__pets {
+    width: 300px;
+    height: 408px;
+    vertical-align: top;
+    margin-top: -4px;
+  }
+  &__image {
+    width: 100%;
+  }
+  &__context {
+    max-width: 430px;
+  }
+  &__title {
+    max-width: 340px;
+    color: var(--dark-l);
+    margin-top: 10px;
+    margin-bottom: 24px;
+    letter-spacing: 0.06em;
+  }
+  &__parag {
+    line-height: 160%;
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
+
+}

@@ -1,0 +1,22 @@
+.help {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  &__items {
+    display: flex;
+    max-width: 1026px;
+    column-gap: 119px;
+    row-gap: 55px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-inline: auto;
+  }
+
+  &__item {
+    text-align: center;
+  }
+  &__item-img {
+    margin-bottom: 25px;
+    width: 60px;
+    height: 60px;
+  }
+}

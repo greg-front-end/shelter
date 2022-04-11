@@ -1,0 +1,7 @@
+/*=============== FONTS ===============*/
+@use '../2-helpers' as *;
+@include font('Arial', 'ArialMT', '400', 'normal');
+@include font('Arial', 'Arial-ItalicMT', '400', 'italic');
+@include font('Georgia', 'Georgia-Bold', '700', 'normal');
+@include font('Georgia', 'Georgia', '400', 'normal');
+@include font('Georgia', 'Georgia-Italic', '400', 'italic');

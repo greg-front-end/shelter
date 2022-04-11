@@ -1,0 +1,26 @@
+@use '../../../main/scss/2-helpers/variables' as *;
+.header-pets {
+  background-color: var(--white);
+  top: -2px;
+  height: 120px;
+  &__logo {
+    margin-top: 6px;
+  }
+  &__title {
+    color: var(--dark-l);
+    margin: 0 0 8px 0
+  }
+  &__list {
+    margin-top: 0px;
+  }
+  &__subtitle {
+    color: var(--dark-3x1);
+    margin-left: 4px;
+  }
+  &__nav-link {
+    color: var(--dark-l);
+  }
+  &__nav-link--active {
+    color: var(--dark-3x1);
+  }
+}

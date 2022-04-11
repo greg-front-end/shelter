@@ -1,0 +1,32 @@
+@use '../2-helpers/' as *;
+.btn-fill,
+.btn-out {
+  display: inline-block;
+  color: var(--dark-3x1);
+  border-radius: 100px;
+  padding: 15px 45px;
+  font-family: $Georgia;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  transition: $transition;
+}
+.btn-fill {
+  background-color: var(--pink);
+
+  &:hover {
+    background-color: var(--pink-l);
+  }
+}
+.btn-out {
+  background-color: transparent;
+  border: 2px solid var(--pink);
+  width: 187px;
+  height: 52px;
+  padding: 0;
+  &:hover {
+    border-color: var(--pink-l);
+    background-color: var(--pink-l);
+  }
+}

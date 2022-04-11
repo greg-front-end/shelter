@@ -1,0 +1,6 @@
+import './style.scss'
+import '../../assets/images/pets/freddie.png'
+import '../../assets/images/pets/pets-charly.png'
+import '../../assets/images/pets/pets-katrine-2.png'
+import '../../assets/images/pets/pets-scarlet.png'
+import '../../assets/images/pets/pets-timmy.png'

@@ -1,0 +1,43 @@
+// Colors
+$white: #FFFFFF;
+$white-l: #F6F6F6;
+$white-s: #FAFAFA;
+$pink: #F1CDB3;
+$pink-l: #FDDCC4;
+$dark-s: #CDCDCD;
+$dark-m: #B2B2B2;
+$dark-l: #545454;
+$dark-xs: #4C4C4C;
+$dark-2x1: #444444;
+$dark-3x1: #292929;
+$hero-back: url(../../assets/images/hero-bg.jpg), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+// Fonts
+$Arial: 'Arial';
+$Georgia: 'Georgia';
+$main-font-size: 15px;
+// Breakpoints
+$breakpoints: (
+  xs: 20rem,
+  // sm: 32rem,
+  md: 48rem,
+  lg: 64rem,
+  xl: 100rem,
+);
+// Effects
+$transition: all 0.3s;
+// Header height
+$header-height: 60px;
+// Root
+:root {
+  --white: #{$white};
+  --white-l: #{$white-l};
+  --white-s: #{$white-s};
+  --pink: #{$pink};
+  --pink-l: #{$pink-l};
+  --dark-s: #{$dark-s};
+  --dark-m: #{$dark-m};
+  --dark-l: #{$dark-l};
+  --dark-xs: #{$dark-xs};
+  --dark-2x1: #{$dark-2x1};
+  --dark-3x1: #{$dark-3x1};
+}

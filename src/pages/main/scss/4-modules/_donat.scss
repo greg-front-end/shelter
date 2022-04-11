@@ -1,0 +1,51 @@
+@use '../2-helpers/variables' as *;
+.donat {
+  background-color: var(--white-l);
+  padding-top: 81px;
+  padding-bottom: 99px;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  &__dog-img {
+    margin-top: 10px;
+  }
+  &__title {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  &__context {
+    max-width: 380px;
+  }
+  &__subtitle {
+    color: var(--dark-l);
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  &__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 349px;
+    background-color: var(--pink);
+    margin-bottom: 20px;
+    border-radius: 9px;
+    height: 42px;
+    color: var(--dark-l);
+    font-size: 20px;
+    transition: $transition;
+    img {
+      margin-right: 15px;
+    }
+    &:hover {
+      background-color: var(--pink-l);
+    }
+  }
+  &__descr {
+    color: var(--dark-m);
+    font-style: italic;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

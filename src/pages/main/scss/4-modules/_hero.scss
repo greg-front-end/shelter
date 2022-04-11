@@ -1,0 +1,38 @@
+.hero {
+  background: url('../../assets/images/hero-bg.png'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  padding-top: 92px;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 88px;
+    gap: 42px;
+    // margin-top: 343px;
+  }
+  &__context {
+    margin-top: -80px;
+  }
+  &__title {
+    max-width: 312px;
+    margin-bottom: 42px;
+    color: var(--white);
+  }
+  &__subtitle {
+    display: block;
+    max-width: 460px;
+    line-height: 160%;
+    margin-bottom: 42px;
+    color: var(--dark-s);
+  }
+  &__photo {
+    width: 698px;
+    height: 728px;
+    vertical-align: top;
+  }
+}

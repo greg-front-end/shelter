@@ -1,0 +1,59 @@
+@use '../2-helpers/variables' as *;
+.footer {
+  margin-top: -17px;
+  padding-top: 56px;
+  background: url('../../assets/images/footer-bg.png'), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 160px;
+    row-gap: 30px;
+  }
+  &__title {
+    text-align: left;
+    color: var(--white);
+    white-space: nowrap;
+    margin-bottom: 40px;
+  }
+  &__question {
+    max-width: 278px;
+  }
+  &__place {
+    max-width: 302px;
+  }
+  &__place-title {
+    margin-bottom: 33px;
+  }
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: left;
+    transition: $transition;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__icon {
+    margin-right: 20px;
+  }
+  &__text {
+    color: var(--pink);
+    transition: $transition;
+    &:hover {
+      color: var(--pink-l);
+    }
+  }
+  &__email {
+    margin-bottom: 35px;
+  }
+  &__place-boston {
+    margin-bottom: 32px;
+  }
+  &__dog {
+    margin-top: -16px;
+  }
+}
