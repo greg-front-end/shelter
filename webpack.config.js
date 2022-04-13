@@ -4,12 +4,12 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const CopyPlugin = require('copy-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack');
-// const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+// const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
-const filename = (ext) => isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`;
+const filename = (ext) => isDev ? `[name]${ext}` : `[name].[contenthash]${ext}`;
 // For production and start watching mode
 let target = "web";
 // Get js path
@@ -35,13 +35,9 @@ function getHtmlTemplate() {
     .map(
       (template) =>
         new HtmlWebpackPlugin({
-          inject: true,
           template: template.path,
           chunks: [template.name.toString()], 
           filename: `${template.name}.html`,
-          minify: {
-            collapseWhitespace: isProd
-          }
         })
     );
 }
@@ -59,7 +55,7 @@ const plugins = [
   new ESLintPlugin(options),
   ...getHtmlTemplate(),
   new MiniCssExtractPlugin({
-    filename: `${filename('css')}`,  // prepend folder name
+    filename: `${filename('.css')}`,  // prepend folder name
     // chunkFilename: '[name].[id].css',    // prepend folder name
     ignoreOrder: false,
   }),
@@ -74,6 +70,7 @@ const plugins = [
   //   patterns: [{from: 'src/assets', to: 'assets'}]
   // })
 ];
+const minimizer = []
 if (isProd) {
   plugins.push(
     new ImageminPlugin({
@@ -117,7 +114,7 @@ module.exports = {
   entry: getEntry(),
   output: {
     path: path.resolve(__dirname, "public"),
-    filename: `${filename('js')}`,
+    filename: `${filename('.js')}`,
     publicPath: '',
     // this places all images processed in an image folder
     assetModuleFilename: "[hash].[ext][query]",
@@ -169,6 +166,14 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: '/node_modules/',
+        use: {
+          // without additional settings, this will reference .babelrc
+          loader: "babel-loader",
+          options: {
+
+            cacheDirectory: true,
+          },
+        }
       },
       {
         test: /\.ts$/,

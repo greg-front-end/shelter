@@ -22,4 +22,3 @@ import './style.scss'
 // import '../../assets/icons/footer/icon-email.svg'
 // import '../../assets/icons/footer/icon-marker.svg'
 // import '../../assets/icons/footer/icon-phone.svg'
-
