@@ -1,6 +1,5 @@
 @use '../../../main/scss/2-helpers' as *;
 .header-pets {
-  background-color: var(--white);
   @include breakpoint(lg, min) {
     height: 120px;
   }
@@ -33,6 +32,15 @@
   }
 }
 .header {
+  position: fixed;
+  z-index: 100;
+  background-color: var(--white);
+  &__bgc {
+    background-color: transparent;
+  }
+  &:has(.header__nav--open) {
+    background-color: transparent;
+  }
   &__nav-burger {
     span {
       transition-delay: 100ms;
