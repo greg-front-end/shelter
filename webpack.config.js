@@ -57,7 +57,6 @@ const plugins = [
   new MiniCssExtractPlugin({
     filename: `${filename('.css')}`,  // prepend folder name
     // chunkFilename: '[name].[id].css',    // prepend folder name
-    ignoreOrder: false,
   }),
   // new BrowserSyncPlugin({
   //   // browse to http://localhost:3000/ during development,
@@ -70,7 +69,6 @@ const plugins = [
   //   patterns: [{from: 'src/assets', to: 'assets'}]
   // })
 ];
-const minimizer = []
 if (isProd) {
   plugins.push(
     new ImageminPlugin({

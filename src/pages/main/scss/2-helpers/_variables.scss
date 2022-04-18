@@ -17,11 +17,11 @@ $Georgia: 'Georgia';
 $main-font-size: 15px;
 // Breakpoints
 $breakpoints: (
-  xs: 20rem,
-  // sm: 32rem,
-  md: 48rem,
-  lg: 64rem,
-  xl: 100rem,
+  xs: 20rem, // 320
+  // sm: 32rem, // 512
+  md: 48rem, // 768
+  lg: 80rem, // 1280
+  xl: 100rem,// 1600
 );
 // Effects
 $transition: all 0.3s;

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pets</title>
 </head>
-<body>
+<body class="body">
   <!-- HEADER -->
   <header id="header" class="header header-pets">
     <div class="container">
@@ -17,10 +17,16 @@
             <span class="header__logo-subtitle header-pets__subtitle">Shelter for pets in Boston</span>
           </a>
         </div>
-        <nav class="header__nav header__nav--js">
+        <nav class="header__nav header-pets__nav header__nav--js">
+          <div class="header__logo header-pets__logo">
+            <a class="header__logo-link" href="index.html">
+              <h1 class="header__logo-title header-pets__title">Cozy House</h1>
+              <span class="header__logo-subtitle header-pets__subtitle">Shelter for pets in Boston</span>
+            </a>
+          </div>
           <ul class="header__nav-list header-pets__list">
             <li class="header__nav-item">
-              <a class="header__nav-link header-pets__nav-link" href="index.html#about">About the shelter</a>
+              <a class="header__nav-link header-pets__nav-link" href="index.html#main">About the shelter</a>
             </li>
             <li class="header__nav-item">
               <a class="header__nav-link header-pets__nav-link header__nav-link--active header-pets__nav-link--active" href="pets.html">Our pets</a>
@@ -33,22 +39,27 @@
             </li>
           </ul>
         </nav>
+        <div class="header-pets__nav-burger header__nav-burger burger-js">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   </header>
   <!-- MAIN -->
   <main id="main" class="main">
         <!-- Friends -->
-        <section id="friends" class="friends">
+        <section id="friends" class=" section friends friends-pets">
           <div class="container">
             <div class="friends__wrapper">
               <!-- Title -->
-              <h3 class="friends__title title">Our friends who
+              <h3 class="friends__title title friends-pets__title">Our friends who
                <span>are looking for a house</span></h3>
                <!-- Pets Cards -->
                 <div class="friends__items friends-pets__items">
                   <!-- Friends item-1 -->
-                  <div class="friends__item">
+                  <div class="friends__item friends-pets__item">
                     <div class="friends__box-img">
                       <img class="friends__item-img" src="../../assets/images/pets-katrine.png" alt="Cat Katarine">
                     </div>
@@ -56,7 +67,7 @@
                     <button class="friends__item-link btn-out">Learn more</button>
                   </div>
                   <!-- Friends item-2 -->
-                  <div class="friends__item">
+                  <div class="friends__item friends-pets__item">
                     <div class="friends__box-img">
                       <img class="friends__item-img" src="../../assets/images/pets-jennifer.png" alt="Dog Jennifer">
                     </div>
@@ -64,7 +75,7 @@
                     <button class="friends__item-link btn-out">Learn more</button>
                   </div>
                   <!-- Friends item-3 -->
-                  <div class="friends__item">
+                  <div class="friends__item friends-pets__item">
                     <div class="friends__box-img">
                       <img class="friends__item-img" src="../../assets/images/pets-woody.png" alt="Dog Woody">
                     </div>
@@ -72,7 +83,7 @@
                     <button class="friends__item-link btn-out">Learn more</button>
                   </div>
                   <!-- Friends item-4 -->
-                  <div class="friends__item">
+                  <div class="friends__item friends-pets__item">
                     <div class="friends__box-img">
                       <img class="friends__item-img" src="../../assets/images/pets/pets-katrine-2.png" alt="Dog Sophia">
                     </div>
@@ -80,7 +91,7 @@
                     <button class="friends__item-link btn-out">Learn more</button>
                   </div>
                   <!-- Friends item-5 -->
-                  <div class="friends__item">
+                  <div class="friends__item friends-pets__item">
                     <div class="friends__box-img">
                       <img class="friends__item-img" src="../../assets/images/pets/pets-timmy.png" alt="Cat Timmy">
                     </div>
@@ -88,7 +99,7 @@
                     <button class="friends__item-link btn-out">Learn more</button>
                   </div>   
                   <!-- Friends item-6 -->
-                  <div class="friends__item">
+                  <div class="friends__item friends-pets__item">
                     <div class="friends__box-img">
                       <img class="friends__item-img" src="../../assets/images/pets/pets-charly.png" alt="Dog Charly">
                     </div>
@@ -96,7 +107,7 @@
                     <button class="friends__item-link btn-out">Learn more</button>
                   </div>
                   <!-- Friends item-7 -->
-                  <div class="friends__item">
+                  <div class="friends__item friends-pets__item">
                     <div class="friends__box-img">
                       <img class="friends__item-img" src="../../assets/images/pets/pets-scarlet.png" alt="Dog Scarlett">
                     </div>
@@ -104,7 +115,7 @@
                     <button class="friends__item-link btn-out">Learn more</button>
                   </div>
                   <!-- Friends item-8 -->
-                  <div class="friends__item">
+                  <div class="friends__item friends-pets__item">
                     <div class="friends__box-img">
                       <img class="friends__item-img" src="../../assets/images/pets/freddie.png" alt="Cat Freddie">
                     </div>
@@ -114,7 +125,7 @@
 
                 </div>
                 <!-- Pagination -->
-                <div class="friends__pagin pagin">
+                <div class="friends-pets__pagin friends__pagin pagin">
                   <button class="pagin__btn pagin__btn--inactive" disabled>&#60;&#60;</button>
                   <button class="pagin__btn pagin__btn--inactive" disabled>&#60;</button>
                   <button class="pagin__btn pagin__btn--active">1</button>
@@ -166,7 +177,7 @@
                   </h4>
                 </a>
               </li>
-              <li class="footer__phone">
+              <li class="footer__place-boston">
                 <a a class="footer__link" href="https://goo.gl/maps/xj2jrodYDSX97fwY9">
                   <img class="footer__icon" src="../../assets/icons/footer/icon-marker.svg" alt="Place">
                   <h4 class="footer__text">

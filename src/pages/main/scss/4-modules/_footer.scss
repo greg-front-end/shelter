@@ -1,32 +1,93 @@
-@use '../2-helpers/variables' as *;
+@use '../2-helpers' as *;
 .footer {
-  margin-top: -17px;
-  padding-top: 56px;
+  padding-top: 30px;
   background: url('../../assets/images/footer-bg.png'), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow-y: hidden;
+  @include breakpoint(lg, min) {
+    padding-top: 56px;
+  }
+  &__wrapper {
+    @media (max-width: 767px) {
+      max-width: 320px;
+      margin-inline: auto;
+    }
+  }
   &__items {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 160px;
-    row-gap: 30px;
+    @include breakpoint(md, min) {
+      display: grid;
+      justify-content: center;
+      column-gap: 60px;
+      row-gap: 65px;
+      max-width: 708px;
+      margin-inline: auto;
+      grid-template-columns: 278px 302px;
+      grid-template-rows: 234px 310px;
+      grid-template-areas: 
+        "text1 text2"
+        "dog dog";
+    }
+    @include breakpoint(lg, min) {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 160px;
+      row-gap: 30px;
+      max-width: 100%;
+      margin-inline: auto;
+    }
   }
   &__title {
     text-align: left;
     color: var(--white);
     white-space: nowrap;
     margin-bottom: 40px;
+    @media (max-width: 767px) {
+      height: 64px;
+      white-space: normal;
+      text-align: center;
+      span {
+        display: inline;
+      }
+    }
   }
   &__question {
     max-width: 278px;
+    grid-area: text1;
+    margin-inline: auto;
+    @media (max-width: 767px) {
+      height: 208px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
   }
   &__place {
     max-width: 302px;
+    grid-area: text2;
+    // margin-left: 11px;
+    @media (max-width: 767px) {
+      height: 222px;
+      margin-bottom: 40px;
+      text-align: center;
+      margin-inline: auto;
+    }
+    @include breakpoint(lg, min) {
+      margin-left: 0;
+    }
   }
   &__place-title {
-    margin-bottom: 33px;
+    @media (max-width: 767px) {
+      max-width: 270px;
+    }
+    @include breakpoint(md, min) {
+      margin-bottom: 33px;
+    }
+  }
+  &__place-area {
+    @media (max-width: 767px) {
+      text-align: left;
+    }
   }
   &__link {
     display: inline-flex;
@@ -48,12 +109,32 @@
     }
   }
   &__email {
-    margin-bottom: 35px;
+    margin-bottom: 40px;
+  }
+  &__phone {
+    .footer__link {
+      height: 23px;
+    }
+    @media (max-width: 767px) {
+    }
   }
   &__place-boston {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
+    @include breakpoint(md, min) {
+      margin-bottom: 33px;
+    }
   }
   &__dog {
-    margin-top: -16px;
+    grid-area: dog;
+    margin-inline: auto;
+    width: 260px;
+    height: 269px;
+    @include breakpoint(md, min) {
+      width: 300px;
+      height: 310px;
+    }
+    @include breakpoint(lg, min) {
+      margin-top: -16px;
+    }
   }
 }

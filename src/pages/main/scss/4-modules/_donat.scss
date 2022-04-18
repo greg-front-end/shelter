@@ -1,27 +1,58 @@
-@use '../2-helpers/variables' as *;
+@use '../2-helpers' as *;
 .donat {
   background-color: var(--white-l);
-  padding-top: 81px;
-  padding-bottom: 99px;
   &__wrapper {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    flex-direction: column-reverse;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 42px;
+    @include breakpoint(md, min) {
+      row-gap: 60px;
+    }
+    @include breakpoint(lg, min) {
+      flex-direction: row;
+      height: 282px;
+    }
   }
   &__dog-img {
-    margin-top: 10px;
+    width: 260px;
+    height: 135.2px;
+    @include breakpoint(md, min) {
+      width: 505px;
+      height: 261px;
+      margin-top: 0;
+    }
   }
   &__title {
-    margin-bottom: 20px;
     text-align: left;
+    margin-inline: 0;
+    @media (max-width: 767px) {
+      height: 64px;
+      text-align: center;
+    }
   }
   &__context {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
     max-width: 380px;
+    @media (max-width:  767px) {
+      align-items: center;
+      max-width: 320px;
+    }
   }
   &__subtitle {
     color: var(--dark-l);
-    margin-bottom: 20px;
     font-size: 15px;
+    line-height: 160%;
+    letter-spacing: normal;
+    @include breakpoint(md, min) {
+      font-size: 15px;
+      line-height: 110%;
+      letter-spacing: 0.06em;
+    }
   }
   &__card {
     display: flex;
@@ -29,17 +60,31 @@
     align-items: center;
     max-width: 349px;
     background-color: var(--pink);
-    margin-bottom: 20px;
     border-radius: 9px;
-    height: 42px;
+    height: 43px;
     color: var(--dark-l);
     font-size: 20px;
     transition: $transition;
+    text-align: justify;
     img {
       margin-right: 15px;
     }
     &:hover {
       background-color: var(--pink-l);
+    }
+    @media (max-width: 767px) {
+      width: 281px;
+    }
+    @include breakpoint(md, min) {
+      width: 349px;
+    }
+    @include breakpoint(lg, min) {
+      width: auto;
+    }
+  }
+  &__card-num {
+    @media (max-width: 767px) {
+      font-size: 15px;
     }
   }
   &__descr {
@@ -47,5 +92,11 @@
     font-style: italic;
     font-size: 12px;
     line-height: 18px;
+    text-align: justify;
+    height: 90px;
+    @include breakpoint(md, min) {
+      height: 72px;
+      text-align: left;
+    }
   }
 }

@@ -1,36 +1,87 @@
-@use '../../../main/scss/2-helpers/variables' as *;
+@use '../../../main/scss/2-helpers' as *;
 .friends {
-  margin-top: 120px;
   &__wrapper {
-    margin-top: 13px;
-  }
-  &__items {
-    justify-content: space-between;
-  }
-  &__item {
-    margin-left: 0;
-    margin-right: 0;
-    &:nth-child(2) {
-      margin-left: 0;
+    @include breakpoint(md, min) {
+      row-gap: 30px;
     }
-    &:nth-child(4) {
-      margin-right: 0;
+    @include breakpoint(lg, min) {
+      row-gap: 0;
     }
+  }
+  &__item-title {
+    margin-left: 2px;
   }
 }
 .friends-pets {
+  margin-top: 120px;
+  &__title {
+    height: 64px;
+  }
+  @include breakpoint(md, min) {
+    &__title {
+      height: auto;
+    }
+    padding-bottom: 76px;
+  }
+  @include breakpoint(lg, min) {
+    &__title {
+      margin-bottom: 60px;
+    }
+    padding-bottom: 100px;
+  }
   &__items {
-    column-gap: 10px;
     row-gap: 30px;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-inline: auto;
+    margin-bottom: 42px;
+    @include breakpoint(md, min) {
+      max-width: 708px;
+      column-gap: 40px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    @include breakpoint(lg, min) {
+      column-gap: 40px;
+      margin-bottom: 60px;
+      max-width: 100%;
+    }
   }
+  &__item {
+    &:is(:not(:nth-child(1))) {
+      display: flex;
+    }
+    &:nth-child(n+4) {
+      display: none;
+    }
+    @include breakpoint(md, min) {
+      &:nth-child(n+4) {
+        display: flex;
+      }
+      &:nth-child(7), &:nth-child(8) {
+        display: none;
+      }
+    }
+    @include breakpoint(lg, min) {
+      &:nth-child(7), &:nth-child(8) {
+        display: flex;
+      }
+    }
+  }  
 }
 .pagin {
   height: 52px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+  @include breakpoint(md, min) {
+    gap: 20px;
+    margin-top: -31px;
+  }
+  @include breakpoint(lg, min) {
+    margin-top: -1px;
+  }
   &__btn {
     border: 2px solid var(--pink);;
     box-sizing: border-box;
@@ -50,11 +101,11 @@
     &--active {
       background-color: var(--pink);
     }
-    &:hover:not([disabled])  {
+    &:hover:not([disabled], .pagin__btn--active)  {
       background-color: var(--pink-l);
       border-color: var(--pink-l);
     }
-    &:is([disabled]) {
+    &:is([disabled], .pagin__btn--active) {
       cursor: not-allowed;
     }
   }

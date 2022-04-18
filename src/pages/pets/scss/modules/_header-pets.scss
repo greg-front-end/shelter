@@ -1,26 +1,46 @@
-@use '../../../main/scss/2-helpers/variables' as *;
+@use '../../../main/scss/2-helpers' as *;
 .header-pets {
   background-color: var(--white);
-  top: -2px;
-  height: 120px;
-  &__logo {
-    margin-top: 6px;
+  @include breakpoint(lg, min) {
+    height: 120px;
+  }
+  &__nav {
+    background-color: var(--white);
   }
   &__title {
     color: var(--dark-l);
-    margin: 0 0 8px 0
-  }
-  &__list {
-    margin-top: 0px;
   }
   &__subtitle {
     color: var(--dark-3x1);
     margin-left: 4px;
+    @include breakpoint(md, min) {
+      margin-left: 5px;
+    }
   }
   &__nav-link {
     color: var(--dark-l);
+    &:hover {
+      color: var(--dark-3x1);
+    }
   }
   &__nav-link--active {
     color: var(--dark-3x1);
+  }
+  &__nav-burger {
+    span {
+      background-color: #000;
+    }
+  }
+}
+.header {
+  &__nav-burger {
+    span {
+      transition-delay: 100ms;
+    }
+    &--open {
+      span {
+        transition-delay: 200ms;
+      }
+    }
   }
 }

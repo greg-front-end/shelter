@@ -1,18 +1,35 @@
 @use '../2-helpers/' as *; 
 .header {
-
+  height: 120px;
   position: absolute;
-  top: 60px;
+  display: flex;
+  align-items: center;
+  top: 0;
   right: 0;
   left: 0;
   background-color: transparent;
   z-index: 999;
+  @include breakpoint(md, min) {
+    margin-inline: auto;
+  }
+  @include breakpoint(lg, min) {
+    margin-inline: 0;
+    height: 180px;
+  }
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: $header-height;
+    position: relative;
+    @include breakpoint(md, min) {
+      max-width: 708px;
+      margin-inline: auto;
+    }
+    @include breakpoint(lg, min) {
+      max-width: 100%;
+    }
   }
   &__logo {
     transition: $transition;
@@ -32,21 +49,66 @@
     margin: 0 0 8px 0;
   }
   &__logo-subtitle {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 15px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--white);
-    margin-left: 3px;
+  }
+  &__nav {
+    .header__logo {
+      display: none;
+    }
+    @media screen and (max-width: 767px) {
+
+      .header__logo {
+        display: block;
+        max-width: 195px;
+        position: absolute;
+        top: 30px;
+        left: 10px;
+      }
+
+      position: fixed;
+      top: 0;
+      width: 320px;
+      height: 100vh;
+      right: -120%;
+      background-color: var(--dark-3x1);
+      justify-content: center;
+      transition: 0.5s;
+    }
+
+    &--open {
+      right: 0;
+    }
+  }
+  &__nav--active {
+    z-index: 10;
+    right: 0;
   }
   &__nav-list {
     display: flex;
     gap: 36px;
     margin-top: -4px;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      row-gap: 40px;
+      align-items: center;
+      height: 100vh;
+      margin-top: 250px;
+    }
   }
   &__nav-link {
     color: var(--dark-s);
     transition: $transition;
     position: relative;
+    @media (max-width: 767px) {
+      font-size: 32px;
+      line-height: 160%;
+    }
+    &:hover {
+      color: var(--white-s)
+    }
   }
   &__nav-link::after {
     position: absolute;
@@ -66,5 +128,59 @@
   }
   &__nav-link--active::after {
     width: 100%;
+  }
+  &__nav-burger {
+    z-index: 9999;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    right: 43px;
+    z-index: 20;
+    display: none;
+    width: 30px;
+    cursor: pointer;
+    transition: $transition;
+    span {
+      // display: block;
+      height: 2px;
+      background-color: var(--pink);
+      width: 100%;
+    }
+    @media screen and (max-width: 767px) {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+    }
+    &--open {
+      transform: translateY(-50%) rotate(-90deg);
+    }
+  }
+  @keyframes slide-in {
+    
+  }
+  @keyframes slide-out {
+    
+  }
+  @keyframes rotate {
+    
+  }
+}
+.main {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    background: rgba(41, 41, 41, 0.6);
+    transition: $transition;
+  }
+  &--overlay {
+    &::before {
+      opacity: 1;
+      z-index: 99;
+    }
   }
 }

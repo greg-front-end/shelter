@@ -1,0 +1,32 @@
+@use '../2-helpers/' as *;
+.arrow-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 52%;
+  transform: translateY(-43%);
+  @media (max-width: 767px) {
+    bottom: 95px;
+    width: 184px;
+    margin-inline: auto;
+    text-align: center;
+    right: clamp(58px, 100vw - 320px, 68px);
+    top: inherit;
+    transform: none;
+  }
+  
+  &__left, &__right {
+    background-color: transparent;
+    border: 2px solid var(--pink);
+    border-radius: 100px;
+    width: 52px;
+    height: 52px;
+  }
+
+  &__left:hover, &__right:hover {
+    background-color: var(--pink-l);
+    border-color: var(--pink-l);
+  }
+}
