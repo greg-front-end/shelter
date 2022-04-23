@@ -1,2 +1,3 @@
 import './style.scss'
-import '../main/js/Burger'
+import '../../assets/js/Burger'
+// import '../../assets/js/Popup'

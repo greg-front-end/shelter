@@ -73,6 +73,9 @@ body {
   color: var(--white);
   font-size: $main-font-size;
 }
+.body--hidden {
+  overflow-y: hidden;
+}
 .section {
   padding-top: 42px;
   padding-bottom: 42px;
@@ -112,5 +115,27 @@ body {
   }
   @include breakpoint(md, min) {
     height: 90px;
+  }
+}
+.overlay {
+  position: fixed;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: -100%;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition;
+  background-color: rgba(41, 41, 41, 0.6);
+  &--active {
+    opacity: 1;
+    visibility: visible;
+    right: 0;
+    width: 100%;
+    &:hover~.popup > .popup__inner > .popup__close {
+      background-color: var(--pink-l);
+    }
   }
 }

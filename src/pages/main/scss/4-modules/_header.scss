@@ -8,6 +8,7 @@
   right: 0;
   left: 0;
   background-color: transparent;
+  transition: $transition;
   @include breakpoint(md, min) {
     margin-inline: auto;
   }
@@ -70,19 +71,27 @@
 
       position: fixed;
       top: 0;
-      width: 320px;
+      width: 0px;
       height: 100vh;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
       right: 0%;
-      animation: slide-right-out 0.3s forwards 0.5s;
+      transform: translateX(150%);
+      animation: slide-right-out 0.3s forwards 0.6s;
       background-color: var(--dark-3x1);
       justify-content: center;
       transition: 0.3s;
-      transition-delay: 0.5s;
+      transition-delay: 0.3s;
       z-index: 100;
     }
 
     &--open {
       // right: 0;
+      visibility: visible;
+      width: 320px;
+      opacity: 1;
+      transform: translateX(0%);
       animation: slide-right-in 0.3s forwards 0s;
       .header__nav-item {
         animation: slide-right-in 0.3s forwards 0s;
@@ -221,36 +230,5 @@
   }
   @keyframes rotate {
     
-  }
-}
-.main {
-  &:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    z-index: -1;
-    visibility: hidden;
-    height: 0%;
-    background: rgba(41, 41, 41, 0.6);
-    transition: $transition;
-  }
-  &--overlay {
-    transition: $transition;
-    &::before {
-      transition: $transition;
-      position: fixed;
-      visibility: visible;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 100%;
-      opacity: 1;
-      z-index: 99;
-      .header {
-        z-index: auto;
-      }
-    }
   }
 }

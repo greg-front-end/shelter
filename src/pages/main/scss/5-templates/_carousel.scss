@@ -1,4 +1,118 @@
 @use '../2-helpers/' as *;
+$widhtXS: 270px;
+$widthMD: 580px;
+$widthLG: 990px;
+.slider {
+  display: flex;
+  align-items: center;
+  width: $widhtXS;
+  margin-inline: auto;
+  overflow: hidden;
+  &__item {
+    display: flex;
+    align-items: center;
+    row-gap: 48px;
+    margin-inline: auto;
+    width: $widhtXS;
+    // overflow: hidden;
+    @media (max-width: 767px) {
+      max-width: 320px;
+      // flex-wrap: wrap;
+      justify-content: center;
+    }
+    @include breakpoint(md, min) {
+      column-gap: 40px;
+      width: $widthMD;
+    }
+    @include breakpoint(lg, min) {
+      column-gap: 90px;
+      width: $widthLG;
+    }
+  }
+  @include breakpoint(md, min) {
+    width: 580px;
+  }
+  @include breakpoint(lg, min) {
+    width: 990px;
+  }
+  &__inner {
+    display: flex;
+    transition: all 1s;
+    // justify-content: center;
+    position: relative;
+    left: -$widhtXS;
+    @include breakpoint(md, min) {
+      left: -$widthMD;
+    }
+    @include breakpoint(lg, min) {
+      left: -$widthLG;
+    }
+  }
+  &--transition-right {
+    animation: move-right 1s;
+  }
+  &--transition-left {
+    animation: move-left 1s;
+  } 
+}
+
+@keyframes move-right {
+  from {
+    left: -$widhtXS;
+  }
+  to {
+    left: -($widhtXS + $widhtXS);
+  }
+}
+@include breakpoint(md, min) {
+  @keyframes move-right {
+    from {
+      left: -$widthMD; 
+    }
+    to {
+      left: -($widthMD + $widthMD);
+    }
+  }
+}
+@include breakpoint(lg, min) {
+  @keyframes move-right {
+    from {
+      left: -$widthLG;
+    }
+    to {
+      left: -($widthLG + $widthLG);
+    }
+  }
+}
+@keyframes move-left {
+    from {
+      left: -$widhtXS;
+    }
+    to {
+      left: 0;	
+    }
+}
+@include breakpoint(md, min) {
+  @keyframes move-left {
+    from {
+      left: -$widthMD;
+    }
+    to {
+      left: 0;	
+    }
+  }
+}
+@include breakpoint(lg, min) {
+  @keyframes move-left {
+    from {
+      left: -$widthLG;
+    }
+    to {
+      left: 0;	
+    }
+  }
+}
+
 .arrow-btns {
   display: flex;
   align-items: center;
@@ -7,6 +121,7 @@
   width: 100%;
   top: 52%;
   transform: translateY(-43%);
+  z-index: -1;
   @media (max-width: 767px) {
     bottom: 95px;
     width: 184px;
@@ -15,6 +130,7 @@
     right: clamp(58px, 100vw - 320px, 68px);
     top: inherit;
     transform: none;
+    z-index: 1;
   }
   
   &__left, &__right {

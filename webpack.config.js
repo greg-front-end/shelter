@@ -3,7 +3,7 @@ const glob = require('glob');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 // const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
@@ -43,7 +43,7 @@ function getHtmlTemplate() {
 }
 // For eslint
 const options = {
-  extensions: [`js`, `jsx`, `ts`, 'svgo', 'svg'],
+  extensions: [`js`, `jsx`, `ts`, 'svgo', 'svg', 'json'],
   exclude: [
     `/node_modules/`,
     `/bower_components/`
@@ -65,10 +65,11 @@ const plugins = [
   //   port: 3000,
   //   server: { baseDir: ['public'] }
   // })
-  // new CopyPlugin({
-  //   patterns: [{from: 'src/assets', to: 'assets'}]
-  // })
+  new CopyPlugin({
+    patterns: [{from: 'src/assets/data', to: 'assets/data'}]
+  })
 ];
+
 if (isProd) {
   plugins.push(
     new ImageminPlugin({
@@ -162,8 +163,8 @@ module.exports = {
         }
       },
       {
-        test: /\.jsx?$/,
-        exclude: '/node_modules/',
+        test: /\.m?jsx?$/,
+        exclude: /(node_modules|bower_components)/,
         use: {
           // without additional settings, this will reference .babelrc
           loader: "babel-loader",
