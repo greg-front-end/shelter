@@ -140,6 +140,16 @@ $widthLG: 990px;
     width: 52px;
     height: 52px;
   }
+  &__left {
+    &--disable {
+      pointer-events: none;
+    }
+  }
+  &__right {
+    &--disable {
+      pointer-events: none;
+    }
+  }
 
   &__left:hover, &__right:hover {
     background-color: var(--pink-l);

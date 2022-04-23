@@ -27,7 +27,7 @@ burger.addEventListener('click', function (e) {
   nav.classList.toggle('header__nav--open');
   overlay.classList.toggle('overlay--active');
   header.classList.toggle('header__bgc');
-  body.classList.add('body--hidden');
+  body.classList.toggle('body--hidden');
   removeOverlay();
 });
 navLinks.forEach(function (link) {

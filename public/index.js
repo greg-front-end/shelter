@@ -122,7 +122,7 @@ burger.addEventListener('click', function (e) {
   nav.classList.toggle('header__nav--open');
   overlay.classList.toggle('overlay--active');
   header.classList.toggle('header__bgc');
-  body.classList.add('body--hidden');
+  body.classList.toggle('body--hidden');
   removeOverlay();
 });
 navLinks.forEach(function (link) {
@@ -177,107 +177,99 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-var PetCard = /*#__PURE__*/function () {
-  function PetCard(parentElem) {
-    var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-        imgSrc = _ref.img,
-        name = _ref.name,
-        type = _ref.type,
-        breed = _ref.breed,
-        descr = _ref.description,
-        age = _ref.age,
-        inoculations = _ref.inoculations,
-        diseases = _ref.diseases,
-        parasites = _ref.parasites;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    _classCallCheck(this, PetCard);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-    this.parentElem = document.querySelector(parentElem);
-    this.body = document.querySelector('body');
-    this.popup = document.querySelector('.popup');
-    this.overlay = document.querySelector('.overlay');
-    this.imgSrc = imgSrc;
-    this.name = name;
-    this.type = type;
-    this.breed = breed;
-    this.descr = descr;
-    this.age = age;
-    this.inoculations = inoculations;
-    this.diseases = diseases;
-    this.parasites = parasites;
-    this.renderCard = this.renderCard.bind(this);
-    this.renderPopup = this.renderPopup.bind(this);
-    this.removePopupFromDom = this.removePopupFromDom.bind(this);
-  }
+var PetCard = /*#__PURE__*/_createClass(function PetCard(parentElem) {
+  var _this = this;
 
-  _createClass(PetCard, [{
-    key: "renderPopup",
-    value: function renderPopup() {
-      var _this = this;
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      imgSrc = _ref.img,
+      name = _ref.name,
+      type = _ref.type,
+      breed = _ref.breed,
+      descr = _ref.description,
+      age = _ref.age,
+      inoculations = _ref.inoculations,
+      diseases = _ref.diseases,
+      parasites = _ref.parasites;
 
-      var elem = document.createElement('div');
-      elem.classList.add('popup__inner');
-      elem.innerHTML = "\n    <div class=\"popup__close\">\n    <img class=\"popup__close-btn\" src=\"../../assets/icons/close.svg\" alt=\"Close\">\n    </div>\n    <div class=\"popup__wrapper\">\n    <div class=\"popup__left-item\">\n    <img class=\"popup__image\" src=".concat(this.imgSrc, " alt=").concat(this.breed, ">\n    </div>\n    <div class=\"popup__right-item\">\n    <h3 class=\"popup__title\">").concat(this.name, "</h3>\n    <h4 class=\"popup__subtitle\">").concat(this.type, " - ").concat(this.breed, "</h4>\n    <p class=\"popup__descr\">").concat(this.descr, "</p>\n    <ul class=\"popup__list\">\n    <li class=\"popup__list-item\"><span>Age</span> ").concat(this.age, "</li>\n    <li class=\"popup__list-item\"><span>Inoculations:</span> ").concat(this.inoculations, "</li>\n    <li class=\"popup__list-item\"><span>Diseases:</span> ").concat(this.diseases, "</li>\n    <li class=\"popup__list-item\"><span>Parasites:</span> ").concat(this.parasites, "</li>\n    </ul>\n    </div>\n    </div>");
-      this.popup.append(elem);
-      var popupCloseBtn = this.popup.querySelector('.popup__close');
-      this.overlay.classList.add('overlay--active');
-      this.popup.classList.add('popup--active');
-      this.body.classList.add('body--hidden');
+  _classCallCheck(this, PetCard);
 
-      var removeOverlay = function removeOverlay() {
-        _this.overlay.classList.remove('overlay--active');
+  _defineProperty(this, "renderPopup", function () {
+    var body = document.querySelector('body');
+    var popup = document.querySelector('.popup');
+    var elem = document.createElement('div');
+    elem.classList.add('popup__inner');
+    elem.innerHTML = "\n    <div class=\"popup__close\">\n    <img class=\"popup__close-btn\" src=\"./assets/icons/close.svg\" alt=\"Close\">\n    </div>\n    <div class=\"popup__wrapper\">\n    <div class=\"popup__left-item\">\n    <img class=\"popup__image\" src=".concat(_this.imgSrc, " alt=").concat(_this.breed, ">\n    </div>\n    <div class=\"popup__right-item\">\n    <h3 class=\"popup__title\">").concat(_this.name, "</h3>\n    <h4 class=\"popup__subtitle\">").concat(_this.type, " - ").concat(_this.breed, "</h4>\n    <p class=\"popup__descr\">").concat(_this.descr, "</p>\n    <ul class=\"popup__list\">\n    <li class=\"popup__list-item\"><span>Age</span> ").concat(_this.age, "</li>\n    <li class=\"popup__list-item\"><span>Inoculations:</span> ").concat(_this.inoculations, "</li>\n    <li class=\"popup__list-item\"><span>Diseases:</span> ").concat(_this.diseases, "</li>\n    <li class=\"popup__list-item\"><span>Parasites:</span> ").concat(_this.parasites, "</li>\n    </ul>\n    </div>\n    </div>");
+    popup.append(elem);
+    var popupCloseBtn = popup.querySelector('.popup__close');
 
-        _this.popup.classList.remove('popup--active');
+    _this.overlay.classList.add('overlay--active');
 
-        _this.body.classList.remove('body--hidden');
+    popup.classList.add('popup--active');
+    body.classList.add('body--hidden');
 
-        setTimeout(function () {
-          return _this.removePopupFromDom();
-        }, 500);
-      };
+    var removeOverlay = function removeOverlay() {
+      _this.overlay.classList.remove('overlay--active');
 
-      popupCloseBtn.addEventListener('click', removeOverlay);
+      popup.classList.remove('popup--active');
+      body.classList.remove('body--hidden');
+      setTimeout(function () {
+        popup.innerHTML = '';
+      }, 300);
+    };
 
-      if (this.overlay.classList.contains('overlay--active')) {
-        window.addEventListener('click', function (e) {
-          if (!e.target.closest('.friends__item') && !e.target.closest('.popup') && e.target.closest('.overlay')) {
-            removeOverlay();
-          }
-        });
+    popup.addEventListener('click', function (e) {
+      if (e.target.classList.contains('popup__close') || e.target.classList.contains('popup__close-btn')) {
+        removeOverlay();
       }
-    }
-  }, {
-    key: "removePopupFromDom",
-    value: function removePopupFromDom() {
-      if (this.popup.childNodes.length > 0) {
-        this.popup.innerHTML = ''; // this.popup.firstElementChild.remove(this.popup.firstElementChild)
-      }
-    }
-  }, {
-    key: "renderCard",
-    value: function renderCard() {
-      var _this2 = this;
+    });
 
-      var card = document.createElement('div');
-      card.dataset.id = "".concat(this.name);
-      this.parentElem === '.friends-pets__items' ? card.classList.add('friends-pets__item') : card.classList.add('friends__item');
-      card.classList.add('slider__item');
-      card.innerHTML = "\n    <div class=\"friends__box-img\">\n    <img class=\"friends__item-img\" src=".concat(this.imgSrc, " alt=").concat(this.breed, "></div>\n    <h4 class=\"friends__item-title\">").concat(this.name, "</h4>\n    <button class=\"friends__item-link btn-out\">Learn more</button>\n    ");
-      card.addEventListener('click', function () {
-        _this2.renderPopup();
+    if (_this.overlay.classList.contains('overlay--active')) {
+      window.addEventListener('click', function (e) {
+        if (!e.target.closest('.friends__item') && !e.target.closest('.popup') && e.target.closest('.overlay')) {
+          removeOverlay();
+        }
       });
-      this.parentElem.append(card);
     }
-  }]);
+  });
 
-  return PetCard;
-}();
+  _defineProperty(this, "renderCard", function () {
+    var cardsParent = document.querySelector('.slider__item-visible');
+    var card = document.createElement('div');
+    card.dataset.id = "".concat(_this.name);
+    _this.parentElem === '.friends-pets__items' ? card.classList.add('friends-pets__item') : card.classList.add('friends__item');
+    card.classList.add('slider__item');
+    card.innerHTML = "\n    <div class=\"friends__box-img\">\n    <img class=\"friends__item-img\" src=".concat(_this.imgSrc, " alt=").concat(_this.breed, "></div>\n    <h4 class=\"friends__item-title\">").concat(_this.name, "</h4>\n    <button class=\"friends__item-link btn-out\">Learn more</button>\n    ");
+    cardsParent.addEventListener('click', function (e) {
+      if (e.target.closest('.slider__item').dataset.id === card.dataset.id) {
+        _this.renderPopup();
+      }
+    });
+
+    _this.parentElem.append(card);
+  });
+
+  this.parentElem = document.querySelector(parentElem);
+  this.overlay = document.querySelector('.overlay');
+  this.imgSrc = imgSrc;
+  this.name = name;
+  this.type = type;
+  this.breed = breed;
+  this.descr = descr;
+  this.age = age;
+  this.inoculations = inoculations;
+  this.diseases = diseases;
+  this.parasites = parasites;
+  this.renderCard = this.renderCard.bind(this);
+  this.renderPopup = this.renderPopup.bind(this);
+});
 
 
 
@@ -302,7 +294,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-console.log(_data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
 
 
 function slider() {
@@ -336,8 +327,8 @@ function slider() {
       itemRight = document.querySelector('.slider__item-right'),
       itemVisible = document.querySelector('.slider__item-visible');
   var randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-  randomThreeArr.forEach(function (obj) {
-    return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
+  randomThreeArr.forEach(function (idx) {
+    return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
   });
   window.addEventListener('resize', function () {
     size = chekcScreenSize();
@@ -346,77 +337,62 @@ function slider() {
       itemVisible.innerHTML = '';
       setTimeout(function () {
         randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-        randomThreeArr.forEach(function (obj) {
-          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
+        randomThreeArr.forEach(function (idx) {
+          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
         });
       });
     } else if (itemVisible.childNodes.length < size) {
       itemVisible.innerHTML = '';
       setTimeout(function () {
         randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-        randomThreeArr.forEach(function (obj) {
-          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
+        randomThreeArr.forEach(function (idx) {
+          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
         });
       });
     }
-  }); // const removeThreeSlides = (e) => {
-  // 	if (sliderInner.childNodes.length > size && e.target.closest('.arrow-btns__right')) {
-  // 		for (let i = 0; i < (sliderInner.childNodes.length - size); i++) {
-  // 			sliderInner.removeChild(sliderInner.firstChild)
-  // 		}
-  // 	}
-  // 	if (sliderInner.childNodes.length > size && e.target.closest('.arrow-btns__left')) {
-  // 		for (let i = 0; i < (sliderInner.childNodes.length - size); i++) {
-  // 			sliderInner.removeChild(sliderInner.lastChild)
-  // 		}
-  // 	}
-  // }
+  });
 
   var moveLeft = function moveLeft(e) {
     sliderInner.classList.add("slider--transition-left");
     prevBtn.removeEventListener("click", moveLeft);
     nextBtn.removeEventListener("click", moveRight);
+    prevBtn.classList.add('arrow-btns__left--disable');
     itemLeft.innerHTML = '';
-    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-    randomThreeArr.forEach(function (obj) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-left', obj).renderCard();
-    });
-    randomThreeArr.forEach(function (obj) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
+    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateNextRandomThreeCards)(randomThreeArr, size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
+    randomThreeArr.forEach(function (idx) {
+      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-left', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
     });
   };
 
   var moveRight = function moveRight(e) {
     sliderInner.classList.add("slider--transition-right");
-    prevBtn.removeEventListener("click", moveLeft);
+    nextBtn.removeEventListener("click", moveLeft);
     nextBtn.removeEventListener("click", moveRight);
     itemRight.innerHTML = '';
-    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-    randomThreeArr.forEach(function (obj) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-right', obj).renderCard();
-    });
-    randomThreeArr.forEach(function (obj) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
+    nextBtn.classList.add('arrow-btns__right--disable');
+    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateNextRandomThreeCards)(randomThreeArr, size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
+    console.log(randomThreeArr);
+    setTimeout(function () {
+      randomThreeArr.forEach(function (idx) {
+        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-right', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
+      });
     });
   };
 
   prevBtn.addEventListener("click", moveLeft);
   nextBtn.addEventListener("click", moveRight);
   sliderInner.addEventListener("animationend", function (animationEvent) {
+    prevBtn.classList.remove('arrow-btns__left--disable');
+    nextBtn.classList.remove('arrow-btns__right--disable');
+
     if (animationEvent.animationName === "move-left") {
-      sliderInner.classList.remove("slider--transition-left"); // itemVisible.innerHTML = itemLeft.innerHTML
-
-      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-      randomThreeArr.forEach(function (obj) {
-        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
-      });
+      sliderInner.classList.remove("slider--transition-left");
+      itemVisible.innerHTML = itemLeft.innerHTML;
+      itemLeft.innerHTML = '';
     } else {
-      sliderInner.classList.remove("slider--transition-right"); // itemVisible.innerHTML = itemRight.innerHTML
-
-      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-      randomThreeArr.forEach(function (obj) {
-        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
-      });
+      sliderInner.classList.remove("slider--transition-right");
+      itemVisible.innerHTML = itemRight.innerHTML;
+      itemRight.innerHTML = '';
     }
 
     prevBtn.addEventListener("click", moveLeft);
@@ -456,16 +432,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
 /* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.map.js */ "./node_modules/core-js/modules/es.array.map.js");
-/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
-/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
-/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -475,47 +447,73 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
+// function generateRandomThreeCards(size, data) {
+//   let threeRandomCards = []
+//   for (let i = 0; i < size; i++) {
+//     let n = data[Math.floor(Math.random() * data.length)]
+//     threeRandomCards.push(n)
+//   }
+//   let uniqueValues = new Set(threeRandomCards.map(obj => obj.name));
+//   while (uniqueValues.size < threeRandomCards.length) {
+//     threeRandomCards = []
+//     for (let i = 0; i < size; i++) {
+//       let n = data[Math.floor(Math.random() * data.length)]
+//       threeRandomCards.push(n)
+//     }
+//     uniqueValues = new Set(threeRandomCards.map(obj => obj.name));
+//   }
+//   return threeRandomCards
+// }
 function generateRandomThreeCards(size, data) {
   var threeRandomCards = [];
 
   for (var i = 0; i < size; i++) {
-    var n = data[Math.floor(Math.random() * data.length)];
+    var n = Math.floor(Math.random() * data.length);
     threeRandomCards.push(n);
   }
 
-  var uniqueValues = new Set(threeRandomCards.map(function (obj) {
-    return obj.name;
-  }));
+  var uniqueValues = new Set(threeRandomCards);
 
   while (uniqueValues.size < threeRandomCards.length) {
     threeRandomCards = [];
 
     for (var _i = 0; _i < size; _i++) {
-      var _n = data[Math.floor(Math.random() * data.length)];
+      var _n = Math.floor(Math.random() * data.length);
+
       threeRandomCards.push(_n);
     }
 
-    uniqueValues = new Set(threeRandomCards.map(function (obj) {
-      return obj.name;
-    }));
+    uniqueValues = new Set(threeRandomCards);
   }
 
   return threeRandomCards;
 }
 
-function generateNextRandomThreeCards() {
-  var prevCards = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var nextThreeCards = generateRandomThreeCards();
+var arr = [0, 1, 1];
 
-  if (prevCards.length) {
-    prevCards.forEach(function (card) {
-      while (nextThreeCards.includes(card)) {
-        nextThreeCards = generateNextRandomThreeCards();
-      }
-    });
+function generateNextRandomThreeCards() {
+  var prevThreeIdx = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var size = arguments.length > 1 ? arguments[1] : undefined;
+  var data = arguments.length > 2 ? arguments[2] : undefined;
+  var nextThreeCards = [];
+
+  if (prevThreeIdx.length) {
+    var _loop = function _loop() {
+      var number = Math.floor(Math.random() * 8);
+      prevThreeIdx.forEach(function (idx) {
+        if (!nextThreeCards.includes(idx) && !prevThreeIdx.includes(number) && !nextThreeCards.includes(number)) {
+          nextThreeCards.push(number);
+          return;
+        }
+      });
+    };
+
+    while (nextThreeCards.length < prevThreeIdx.length) {
+      _loop();
+    }
   }
+
+  return nextThreeCards;
 }
 
 
@@ -4300,32 +4298,6 @@ addToUnscopables('entries');
 if (!IS_PURE && DESCRIPTORS && values.name !== 'values') try {
   defineProperty(values, 'name', { value: 'values' });
 } catch (error) { /* empty */ }
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/es.array.map.js":
-/*!******************************************************!*\
-  !*** ./node_modules/core-js/modules/es.array.map.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var $map = (__webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js").map);
-var arrayMethodHasSpeciesSupport = __webpack_require__(/*! ../internals/array-method-has-species-support */ "./node_modules/core-js/internals/array-method-has-species-support.js");
-
-var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('map');
-
-// `Array.prototype.map` method
-// https://tc39.es/ecma262/#sec-array.prototype.map
-// with adding support of @@species
-$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
-  map: function map(callbackfn /* , thisArg */) {
-    return $map(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
-  }
-});
 
 
 /***/ }),

@@ -1,8 +1,6 @@
 export default class PetCard {
   constructor(parentElem, { img: imgSrc, name, type, breed, description: descr, age, inoculations, diseases, parasites } = {}) {
     this.parentElem = document.querySelector(parentElem);
-    this.body = document.querySelector('body');
-    this.popup = document.querySelector('.popup');
     this.overlay = document.querySelector('.overlay');
     this.imgSrc = imgSrc;
     this.name = name;
@@ -15,15 +13,16 @@ export default class PetCard {
     this.parasites = parasites;
     this.renderCard = this.renderCard.bind(this);
     this.renderPopup = this.renderPopup.bind(this);
-    this.removePopupFromDom = this.removePopupFromDom.bind(this)
   }
 
-  renderPopup() {
+  renderPopup = () => {
+    const body = document.querySelector('body')
+    const popup = document.querySelector('.popup')
     const elem = document.createElement('div')
     elem.classList.add('popup__inner')
     elem.innerHTML = `
     <div class="popup__close">
-    <img class="popup__close-btn" src="../../assets/icons/close.svg" alt="Close">
+    <img class="popup__close-btn" src="./assets/icons/close.svg" alt="Close">
     </div>
     <div class="popup__wrapper">
     <div class="popup__left-item">
@@ -42,21 +41,27 @@ export default class PetCard {
     </div>
     </div>`
 
-    this.popup.append(elem)
+    popup.append(elem)
 
-    const popupCloseBtn = this.popup.querySelector('.popup__close')
+    const popupCloseBtn = popup.querySelector('.popup__close')
     this.overlay.classList.add('overlay--active')
-    this.popup.classList.add('popup--active')
-    this.body.classList.add('body--hidden')
+    popup.classList.add('popup--active')
+    body.classList.add('body--hidden')
 
     const removeOverlay = () => {
       this.overlay.classList.remove('overlay--active')
-      this.popup.classList.remove('popup--active')
-      this.body.classList.remove('body--hidden')
-      setTimeout(() => this.removePopupFromDom(), 500)
+      popup.classList.remove('popup--active')
+      body.classList.remove('body--hidden')
+      setTimeout(() => {
+        popup.innerHTML = ''
+      }, 300)
     }
 
-    popupCloseBtn.addEventListener('click', removeOverlay)
+    popup.addEventListener('click', (e) => {
+      if (e.target.classList.contains('popup__close') || e.target.classList.contains('popup__close-btn')) {
+        removeOverlay()
+      }
+    })
 
     if (this.overlay.classList.contains('overlay--active')) {
       window.addEventListener('click', (e) => {
@@ -67,14 +72,8 @@ export default class PetCard {
     }
   }
 
-  removePopupFromDom() {
-    if (this.popup.childNodes.length > 0) {
-      this.popup.innerHTML = ''
-      // this.popup.firstElementChild.remove(this.popup.firstElementChild)
-    }
-  }
-
-  renderCard() {
+  renderCard = () => {
+    const cardsParent = document.querySelector('.slider__item-visible')
     const card = document.createElement('div')
     card.dataset.id = `${this.name}`
     this.parentElem === '.friends-pets__items' ? card.classList.add('friends-pets__item') : card.classList.add('friends__item')
@@ -86,8 +85,11 @@ export default class PetCard {
     <h4 class="friends__item-title">${this.name}</h4>
     <button class="friends__item-link btn-out">Learn more</button>
     `
-    card.addEventListener('click', () => {
-      this.renderPopup()
+    cardsParent.addEventListener('click', (e) => {
+
+      if (e.target.closest('.slider__item').dataset.id === card.dataset.id) {
+        this.renderPopup()
+      }
     })
     this.parentElem.append(card)
   }

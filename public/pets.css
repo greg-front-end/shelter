@@ -1371,6 +1371,12 @@ body {
   width: 52px;
   height: 52px;
 }
+.arrow-btns__left--disable {
+  pointer-events: none;
+}
+.arrow-btns__right--disable {
+  pointer-events: none;
+}
 .arrow-btns__left:hover, .arrow-btns__right:hover {
   background-color: #FDDCC4;
   background-color: var(--pink-l);
