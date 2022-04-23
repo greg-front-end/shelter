@@ -1,6 +1,101 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/assets/data/petsData.js":
+/*!*************************************!*\
+  !*** ./src/assets/data/petsData.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "petsData": () => (/* binding */ petsData)
+/* harmony export */ });
+var petsData = [{
+  "name": "Jennifer",
+  "img": "./assets/images/pets-jennifer.png",
+  "type": "Dog",
+  "breed": "Labrador",
+  "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
+  "age": "2 months",
+  "inoculations": ["none"],
+  "diseases": ["none"],
+  "parasites": ["none"]
+}, {
+  "name": "Sophia",
+  "img": "./assets/images/pets-sophia.png",
+  "type": "Dog",
+  "breed": "Shih tzu",
+  "description": "Sophia here and I'm looking for my forever home to live out the best years of my life. I am full of energy. Everyday I'm learning new things, like how to walk on a leash, go potty outside, bark and play with toys and I still need some practice.",
+  "age": "1 month",
+  "inoculations": ["parvovirus"],
+  "diseases": ["none"],
+  "parasites": ["none"]
+}, {
+  "name": "Woody",
+  "img": "./assets/images/pets-woody.png",
+  "type": "Dog",
+  "breed": "Golden Retriever",
+  "description": "Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training. Woody will be happier when he finds a new family that can spend a lot of time with him.",
+  "age": "3 years 6 months",
+  "inoculations": ["adenovirus", "distemper"],
+  "diseases": ["right back leg mobility reduced"],
+  "parasites": ["none"]
+}, {
+  "name": "Scarlett",
+  "img": "./assets/images/pets-scarlet.png",
+  "type": "Dog",
+  "breed": "Jack Russell Terrier",
+  "description": "Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.",
+  "age": "3 months",
+  "inoculations": ["parainfluenza"],
+  "diseases": ["none"],
+  "parasites": ["none"]
+}, {
+  "name": "Katrine",
+  "img": "./assets/images/pets-katrine.png",
+  "type": "Cat",
+  "breed": "British Shorthair",
+  "description": "Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one. She is picky about her affection. She loves cuddles and to stretch into your hands for a deeper relaxations.",
+  "age": "6 months",
+  "inoculations": ["panleukopenia"],
+  "diseases": ["none"],
+  "parasites": ["none"]
+}, {
+  "name": "Timmy",
+  "img": "./assets/images/pets-timmy.png",
+  "type": "Cat",
+  "breed": "British Shorthair",
+  "description": "Timmy is an adorable grey british shorthair male. He loves to play and snuggle. He is neutered and up to date on age appropriate vaccinations. He can be chatty and enjoys being held. Timmy has a lot to say and wants a person to share his thoughts with.",
+  "age": "2 years 3 months",
+  "inoculations": ["calicivirus", "viral rhinotracheitis"],
+  "diseases": ["kidney stones"],
+  "parasites": ["none"]
+}, {
+  "name": "Freddie",
+  "img": "./assets/images/pets-freddie.png",
+  "type": "Cat",
+  "breed": "British Shorthair",
+  "description": "Freddie is a little shy at first, but very sweet when he warms up. He likes playing with shoe strings and bottle caps. He is quick to learn the rhythms of his human’s daily life. Freddie has bounced around a lot in his life, and is looking to find his forever home.",
+  "age": "2 months",
+  "inoculations": ["rabies"],
+  "diseases": ["none"],
+  "parasites": ["none"]
+}, {
+  "name": "Charly",
+  "img": "./assets/images/pets-charly.png",
+  "type": "Dog",
+  "breed": "Jack Russell Terrier",
+  "description": "This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.",
+  "age": "8 years",
+  "inoculations": ["bordetella bronchiseptica", "leptospirosis"],
+  "diseases": ["deafness", "blindness"],
+  "parasites": ["lice", "fleas"]
+}];
+
+/***/ }),
+
 /***/ "./src/assets/js/Burger.js":
 /*!*********************************!*\
   !*** ./src/assets/js/Burger.js ***!
@@ -200,15 +295,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Cards */ "./src/assets/js/Cards.js");
-/* harmony import */ var _generateCards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./generateCards */ "./src/assets/js/generateCards.js");
+/* harmony import */ var _data_petsData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data/petsData */ "./src/assets/data/petsData.js");
+/* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Cards */ "./src/assets/js/Cards.js");
+/* harmony import */ var _generateCards__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./generateCards */ "./src/assets/js/generateCards.js");
 
 
 
-var petsDB = __webpack_require__(/*! ../data/pets.json */ "./src/assets/data/pets.json");
 
-
-console.log(petsDB);
+console.log(_data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
 
 
 function slider() {
@@ -241,9 +335,9 @@ function slider() {
       itemLeft = document.querySelector('.slider__item-left'),
       itemRight = document.querySelector('.slider__item-right'),
       itemVisible = document.querySelector('.slider__item-visible');
-  var randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_3__.generateRandomThreeCards)(size, petsDB);
+  var randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
   randomThreeArr.forEach(function (obj) {
-    return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-visible', obj).renderCard();
+    return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
   });
   window.addEventListener('resize', function () {
     size = chekcScreenSize();
@@ -251,17 +345,17 @@ function slider() {
     if (itemVisible.childNodes.length > size) {
       itemVisible.innerHTML = '';
       setTimeout(function () {
-        randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_3__.generateRandomThreeCards)(size, petsDB);
+        randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
         randomThreeArr.forEach(function (obj) {
-          return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-visible', obj).renderCard();
+          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
         });
       });
     } else if (itemVisible.childNodes.length < size) {
       itemVisible.innerHTML = '';
       setTimeout(function () {
-        randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_3__.generateRandomThreeCards)(size, petsDB);
+        randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
         randomThreeArr.forEach(function (obj) {
-          return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-visible', obj).renderCard();
+          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
         });
       });
     }
@@ -283,12 +377,12 @@ function slider() {
     prevBtn.removeEventListener("click", moveLeft);
     nextBtn.removeEventListener("click", moveRight);
     itemLeft.innerHTML = '';
-    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_3__.generateRandomThreeCards)(size, petsDB);
+    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
     randomThreeArr.forEach(function (obj) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-left', obj).renderCard();
+      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-left', obj).renderCard();
     });
     randomThreeArr.forEach(function (obj) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-visible', obj).renderCard();
+      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
     });
   };
 
@@ -297,12 +391,12 @@ function slider() {
     prevBtn.removeEventListener("click", moveLeft);
     nextBtn.removeEventListener("click", moveRight);
     itemRight.innerHTML = '';
-    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_3__.generateRandomThreeCards)(size, petsDB);
+    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
     randomThreeArr.forEach(function (obj) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-right', obj).renderCard();
+      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-right', obj).renderCard();
     });
     randomThreeArr.forEach(function (obj) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-visible', obj).renderCard();
+      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
     });
   };
 
@@ -312,16 +406,16 @@ function slider() {
     if (animationEvent.animationName === "move-left") {
       sliderInner.classList.remove("slider--transition-left"); // itemVisible.innerHTML = itemLeft.innerHTML
 
-      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_3__.generateRandomThreeCards)(size, petsDB);
+      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
       randomThreeArr.forEach(function (obj) {
-        return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-visible', obj).renderCard();
+        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
       });
     } else {
       sliderInner.classList.remove("slider--transition-right"); // itemVisible.innerHTML = itemRight.innerHTML
 
-      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_3__.generateRandomThreeCards)(size, petsDB);
+      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
       randomThreeArr.forEach(function (obj) {
-        return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]('.slider__item-visible', obj).renderCard();
+        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
       });
     }
 
@@ -5003,17 +5097,6 @@ handlePrototype(DOMTokenListPrototype, 'DOMTokenList');
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
-
-/***/ }),
-
-/***/ "./src/assets/data/pets.json":
-/*!***********************************!*\
-  !*** ./src/assets/data/pets.json ***!
-  \***********************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse('[{"name":"Jennifer","img":"../../assets/images/pets-jennifer.png","type":"Dog","breed":"Labrador","description":"Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won\'t hesitate to play up a storm in the house if she has all of her favorite toys.","age":"2 months","inoculations":["none"],"diseases":["none"],"parasites":["none"]},{"name":"Sophia","img":"../../assets/images/pets-sophia.png","type":"Dog","breed":"Shih tzu","description":"Sophia here and I\'m looking for my forever home to live out the best years of my life. I am full of energy. Everyday I\'m learning new things, like how to walk on a leash, go potty outside, bark and play with toys and I still need some practice.","age":"1 month","inoculations":["parvovirus"],"diseases":["none"],"parasites":["none"]},{"name":"Woody","img":"../../assets/images/pets-woody.png","type":"Dog","breed":"Golden Retriever","description":"Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training. Woody will be happier when he finds a new family that can spend a lot of time with him.","age":"3 years 6 months","inoculations":["adenovirus","distemper"],"diseases":["right back leg mobility reduced"],"parasites":["none"]},{"name":"Scarlett","img":"../../assets/images/pets-scarlet.png","type":"Dog","breed":"Jack Russell Terrier","description":"Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.","age":"3 months","inoculations":["parainfluenza"],"diseases":["none"],"parasites":["none"]},{"name":"Katrine","img":"../../assets/images/pets-katrine.png","type":"Cat","breed":"British Shorthair","description":"Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one. She is picky about her affection. She loves cuddles and to stretch into your hands for a deeper relaxations.","age":"6 months","inoculations":["panleukopenia"],"diseases":["none"],"parasites":["none"]},{"name":"Timmy","img":"../../assets/images/pets-timmy.png","type":"Cat","breed":"British Shorthair","description":"Timmy is an adorable grey british shorthair male. He loves to play and snuggle. He is neutered and up to date on age appropriate vaccinations. He can be chatty and enjoys being held. Timmy has a lot to say and wants a person to share his thoughts with.","age":"2 years 3 months","inoculations":["calicivirus","viral rhinotracheitis"],"diseases":["kidney stones"],"parasites":["none"]},{"name":"Freddie","img":"../../assets/images/pets-freddie.png","type":"Cat","breed":"British Shorthair","description":"Freddie is a little shy at first, but very sweet when he warms up. He likes playing with shoe strings and bottle caps. He is quick to learn the rhythms of his human’s daily life. Freddie has bounced around a lot in his life, and is looking to find his forever home.","age":"2 months","inoculations":["rabies"],"diseases":["none"],"parasites":["none"]},{"name":"Charly","img":"../../assets/images/pets-charly.png","type":"Dog","breed":"Jack Russell Terrier","description":"This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.","age":"8 years","inoculations":["bordetella bronchiseptica","leptospirosis"],"diseases":["deafness","blindness"],"parasites":["lice","fleas"]}]');
 
 /***/ })
 

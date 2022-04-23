@@ -1,6 +1,6 @@
-const petsDB = require('../data/pets.json')
+import { petsData } from '../data/petsData'
 import PetCard from './Cards'
-console.log(petsDB)
+console.log(petsData)
 import { generateRandomThreeCards, generateNextRandomThreeCards } from './generateCards'
 function slider({ slide, nextArrow, prevArrow, wrapper, inner } = {}) {
 
@@ -24,7 +24,7 @@ function slider({ slide, nextArrow, prevArrow, wrapper, inner } = {}) {
 		itemRight = document.querySelector('.slider__item-right'),
 		itemVisible = document.querySelector('.slider__item-visible');
 
-	let randomThreeArr = generateRandomThreeCards(size, petsDB)
+	let randomThreeArr = generateRandomThreeCards(size, petsData)
 	randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 
 	window.addEventListener('resize', () => {
@@ -32,13 +32,13 @@ function slider({ slide, nextArrow, prevArrow, wrapper, inner } = {}) {
 		if (itemVisible.childNodes.length > size) {
 			itemVisible.innerHTML = ''
 			setTimeout(() => {
-				randomThreeArr = generateRandomThreeCards(size, petsDB)
+				randomThreeArr = generateRandomThreeCards(size, petsData)
 				randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 			})
 		} else if (itemVisible.childNodes.length < size) {
 			itemVisible.innerHTML = ''
 			setTimeout(() => {
-				randomThreeArr = generateRandomThreeCards(size, petsDB)
+				randomThreeArr = generateRandomThreeCards(size, petsData)
 				randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 			})
 		}
@@ -62,7 +62,7 @@ function slider({ slide, nextArrow, prevArrow, wrapper, inner } = {}) {
 		prevBtn.removeEventListener("click", moveLeft);
 		nextBtn.removeEventListener("click", moveRight);
 		itemLeft.innerHTML = '';
-		randomThreeArr = generateRandomThreeCards(size, petsDB)
+		randomThreeArr = generateRandomThreeCards(size, petsData)
 		randomThreeArr.forEach(obj => new PetCard('.slider__item-left', obj).renderCard())
 		randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 	};
@@ -72,7 +72,7 @@ function slider({ slide, nextArrow, prevArrow, wrapper, inner } = {}) {
 		prevBtn.removeEventListener("click", moveLeft);
 		nextBtn.removeEventListener("click", moveRight);
 		itemRight.innerHTML = '';
-		randomThreeArr = generateRandomThreeCards(size, petsDB)
+		randomThreeArr = generateRandomThreeCards(size, petsData)
 		randomThreeArr.forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
 		randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 	};
@@ -84,12 +84,12 @@ function slider({ slide, nextArrow, prevArrow, wrapper, inner } = {}) {
 		if (animationEvent.animationName === "move-left") {
 			sliderInner.classList.remove("slider--transition-left");
 			// itemVisible.innerHTML = itemLeft.innerHTML
-			randomThreeArr = generateRandomThreeCards(size, petsDB)
+			randomThreeArr = generateRandomThreeCards(size, petsData)
 			randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 		} else {
 			sliderInner.classList.remove("slider--transition-right");
 			// itemVisible.innerHTML = itemRight.innerHTML
-			randomThreeArr = generateRandomThreeCards(size, petsDB)
+			randomThreeArr = generateRandomThreeCards(size, petsData)
 			randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 		}
 
