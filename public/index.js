@@ -4964,6 +4964,94 @@ __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
+/***/ }),
+
+/***/ "./src/assets/images/pets/pets-charly.png":
+/*!************************************************!*\
+  !*** ./src/assets/images/pets/pets-charly.png ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/pets-charly.png";
+
+/***/ }),
+
+/***/ "./src/assets/images/pets/pets-freddie.png":
+/*!*************************************************!*\
+  !*** ./src/assets/images/pets/pets-freddie.png ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/pets-freddie.png";
+
+/***/ }),
+
+/***/ "./src/assets/images/pets/pets-jennifer.png":
+/*!**************************************************!*\
+  !*** ./src/assets/images/pets/pets-jennifer.png ***!
+  \**************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/pets-jennifer.png";
+
+/***/ }),
+
+/***/ "./src/assets/images/pets/pets-katrine.png":
+/*!*************************************************!*\
+  !*** ./src/assets/images/pets/pets-katrine.png ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/pets-katrine.png";
+
+/***/ }),
+
+/***/ "./src/assets/images/pets/pets-scarlet.png":
+/*!*************************************************!*\
+  !*** ./src/assets/images/pets/pets-scarlet.png ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/pets-scarlet.png";
+
+/***/ }),
+
+/***/ "./src/assets/images/pets/pets-sophia.png":
+/*!************************************************!*\
+  !*** ./src/assets/images/pets/pets-sophia.png ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/pets-sophia.png";
+
+/***/ }),
+
+/***/ "./src/assets/images/pets/pets-timmy.png":
+/*!***********************************************!*\
+  !*** ./src/assets/images/pets/pets-timmy.png ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/pets-timmy.png";
+
+/***/ }),
+
+/***/ "./src/assets/images/pets/pets-woody.png":
+/*!***********************************************!*\
+  !*** ./src/assets/images/pets/pets-woody.png ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/images/pets-woody.png";
+
 /***/ })
 
 /******/ 	});
@@ -5045,6 +5133,11 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "";
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -5058,6 +5151,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_js_Cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/js/Cards */ "./src/assets/js/Cards.js");
 /* harmony import */ var _assets_js_Burger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/js/Burger */ "./src/assets/js/Burger.js");
 /* harmony import */ var _assets_js_Slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/js/Slider */ "./src/assets/js/Slider.js");
+/* harmony import */ var _assets_images_pets_pets_charly_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/images/pets/pets-charly.png */ "./src/assets/images/pets/pets-charly.png");
+/* harmony import */ var _assets_images_pets_pets_freddie_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/images/pets/pets-freddie.png */ "./src/assets/images/pets/pets-freddie.png");
+/* harmony import */ var _assets_images_pets_pets_jennifer_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/images/pets/pets-jennifer.png */ "./src/assets/images/pets/pets-jennifer.png");
+/* harmony import */ var _assets_images_pets_pets_katrine_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/images/pets/pets-katrine.png */ "./src/assets/images/pets/pets-katrine.png");
+/* harmony import */ var _assets_images_pets_pets_scarlet_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/images/pets/pets-scarlet.png */ "./src/assets/images/pets/pets-scarlet.png");
+/* harmony import */ var _assets_images_pets_pets_sophia_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/images/pets/pets-sophia.png */ "./src/assets/images/pets/pets-sophia.png");
+/* harmony import */ var _assets_images_pets_pets_timmy_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../assets/images/pets/pets-timmy.png */ "./src/assets/images/pets/pets-timmy.png");
+/* harmony import */ var _assets_images_pets_pets_woody_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../assets/images/pets/pets-woody.png */ "./src/assets/images/pets/pets-woody.png");
+
+
+
+
+
+
+
+
 
 
 
