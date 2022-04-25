@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pets</title>
 <script defer src="pets.js"></script><link href="pets.css" rel="stylesheet"></head>
+
 <body class="body">
-<div class="overlay"></div>
+  <div class="overlay"></div>
   <!-- HEADER -->
   <header id="header" class="header header-pets">
     <div class="container">
@@ -30,7 +32,8 @@
               <a class="header__nav-link header-pets__nav-link" href="index.html#main">About the shelter</a>
             </li>
             <li class="header__nav-item">
-              <a class="header__nav-link header-pets__nav-link header__nav-link--active header-pets__nav-link--active" href="pets.html">Our pets</a>
+              <a class="header__nav-link header-pets__nav-link header__nav-link--active header-pets__nav-link--active"
+                href="pets.html">Our pets</a>
             </li>
             <li class="header__nav-item">
               <a class="header__nav-link header-pets__nav-link" href="index.html#help">Help the shelter</a>
@@ -50,116 +53,35 @@
   </header>
   <!-- MAIN -->
   <main id="main" class="main">
-        <!-- Friends -->
-        <section id="friends" class=" section friends friends-pets">
-          <div class="container">
-            <div class="friends__wrapper">
-              <!-- Title -->
-              <h3 class="friends__title title friends-pets__title">Our friends who
-               <span>are looking for a house</span></h3>
-               <!-- Pets Cards -->
-                <div class="friends__items friends-pets__items">
-                  <!-- Friends item-1 -->
-                  <div class="friends__item friends-pets__item">
-                    <div class="friends__box-img">
-                      <img class="friends__item-img" src="assets/images/pets-katrine.png" alt="Cat Katarine">
-                    </div>
-                    <h4 class="friends__item-title">Katrine</h4>
-                    <button class="friends__item-link btn-out">Learn more</button>
-                  </div>
-                  <!-- Friends item-2 -->
-                  <div class="friends__item friends-pets__item">
-                    <div class="friends__box-img">
-                      <img class="friends__item-img" src="assets/images/pets-jennifer.png" alt="Dog Jennifer">
-                    </div>
-                    <h4 class="friends__item-title">Jennifer</h4>
-                    <button class="friends__item-link btn-out">Learn more</button>
-                  </div>
-                  <!-- Friends item-3 -->
-                  <div class="friends__item friends-pets__item">
-                    <div class="friends__box-img">
-                      <img class="friends__item-img" src="assets/images/pets-woody.png" alt="Dog Woody">
-                    </div>
-                    <h4 class="friends__item-title">Woody</h4>
-                    <button class="friends__item-link btn-out">Learn more</button>
-                  </div>
-                  <!-- Friends item-4 -->
-                  <div class="friends__item friends-pets__item">
-                    <div class="friends__box-img">
-                      <img class="friends__item-img" src="assets/images/pets-sophia.png" alt="Dog Sophia">
-                    </div>
-                    <h4 class="friends__item-title">Sophia</h4>
-                    <button class="friends__item-link btn-out">Learn more</button>
-                  </div>
-                  <!-- Friends item-5 -->
-                  <div class="friends__item friends-pets__item">
-                    <div class="friends__box-img">
-                      <img class="friends__item-img" src="assets/images/pets-timmy.png" alt="Cat Timmy">
-                    </div>
-                    <h4 class="friends__item-title">Timmy</h4>
-                    <button class="friends__item-link btn-out">Learn more</button>
-                  </div>   
-                  <!-- Friends item-6 -->
-                  <div class="friends__item friends-pets__item">
-                    <div class="friends__box-img">
-                      <img class="friends__item-img" src="assets/images/pets-charly.png" alt="Dog Charly">
-                    </div>
-                    <h4 class="friends__item-title">Charly</h4>
-                    <button class="friends__item-link btn-out">Learn more</button>
-                  </div>
-                  <!-- Friends item-7 -->
-                  <div class="friends__item friends-pets__item">
-                    <div class="friends__box-img">
-                      <img class="friends__item-img" src="assets/images/pets-scarlet.png" alt="Dog Scarlett">
-                    </div>
-                    <h4 class="friends__item-title">Scarlett</h4>
-                    <button class="friends__item-link btn-out">Learn more</button>
-                  </div>
-                  <!-- Friends item-8 -->
-                  <div class="friends__item friends-pets__item">
-                    <div class="friends__box-img">
-                      <img class="friends__item-img" src="assets/images/pets-freddie.png" alt="Cat Freddie">
-                    </div>
-                    <h4 class="friends__item-title">Freddie</h4>
-                    <button class="friends__item-link btn-out">Learn more</button>
-                  </div>                                                          
-
-                </div>
-                <!-- Pagination -->
-                <div class="friends-pets__pagin friends__pagin pagin">
-                  <button class="pagin__btn pagin__btn--inactive" disabled>&#60;&#60;</button>
-                  <button class="pagin__btn pagin__btn--inactive" disabled>&#60;</button>
-                  <button class="pagin__btn pagin__btn--active">1</button>
-                  <button class="pagin__btn">&#62;</button>
-                  <button class="pagin__btn">&#62;&#62;</button>
-                </div>
+    <!-- Friends -->
+    <section id="friends" class=" section friends friends-pets">
+      <div class="container">
+        <div class="friends__wrapper">
+          <!-- Title -->
+          <h3 class="friends__title title friends-pets__title">Our friends who
+            <span>are looking for a house</span></h3>
+          <!-- Pets Cards -->
+          <div class="fridens__slider-wrapper friends-pets__items slider">
+            <div class="friends__items slider__inner">
+              <div class="slider__box slider__item-left"></div>
+              <div class="slider__box slider__item-visible"></div>
+              <div class="slider__box slider__item-right"></div>
             </div>
           </div>
-        </section>
+          <!-- Pagination -->
+          <div class="friends-pets__pagin friends__pagin pagin">
+            <button class="pagin__btn pagin__btn--inactive pagin__btn-first-page" disabled>&#60;&#60;</button>
+            <button class="pagin__btn pagin__btn--inactive pagin__btn-prev" disabled>&#60;</button>
+            <button class="pagin__btn pagin__btn--active">1</button>
+            <button class="pagin__btn pagin__btn-next">&#62;</button>
+            <button class="pagin__btn pagin__btn-last-page">&#62;&#62;</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <!-- POPUP -->
   <div class="popup">
-    <div class="popup__close">
-      <img class="popup__close-btn" src="assets/icons/close.svg" alt="Close">
-    </div>
-    <div class="popup__wrapper">
-      <div class="popup__left-item">
-        <img class="popup__image" src="assets/images/pets-jennifer.png" alt="Close">
-      </div>
-      <div class="popup__right-item">
-        <h3 class="popup__title">Jennifer</h3>
-        <h4 class="popup__subtitle">Dog - Labrador</h4>
-        <p class="popup__descr">
-          Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.
-        </p>
-        <ul class="popup__list">
-          <li class="popup__list-item"><span>Age:</span> 2 months</li>
-          <li class="popup__list-item"><span>Inoculations:</span> none</li>
-          <li class="popup__list-item"><span>Diseases:</span> none</li>
-          <li class="popup__list-item"><span>Parasites:</span> none</li>
-        </ul>
-      </div>
-    </div>
   </div>
   <!-- FOOTER -->
   <footer id="footer" class="footer">
@@ -206,7 +128,7 @@
                 <a a class="footer__link" href="https://goo.gl/maps/xj2jrodYDSX97fwY9">
                   <img class="footer__icon" src="assets/icons/icon-marker.svg" alt="Place">
                   <h4 class="footer__text">
-                    18 South Park, London 
+                    18 South Park, London
                   </h4>
                 </a>
               </li>
@@ -220,4 +142,5 @@
     </div>
   </footer>
 </body>
+
 </html>

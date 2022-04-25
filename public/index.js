@@ -244,7 +244,7 @@ var PetCard = /*#__PURE__*/_createClass(function PetCard(parentElem) {
     var cardsParent = document.querySelector('.slider__item-visible');
     var card = document.createElement('div');
     card.dataset.id = "".concat(_this.name);
-    _this.parentElem === '.friends-pets__items' ? card.classList.add('friends-pets__item') : card.classList.add('friends__item');
+    card.classList.add('friends__item');
     card.classList.add('slider__item');
     card.innerHTML = "\n    <div class=\"friends__box-img\">\n    <img class=\"friends__item-img\" src=".concat(_this.imgSrc, " alt=").concat(_this.breed, "></div>\n    <h4 class=\"friends__item-title\">").concat(_this.name, "</h4>\n    <button class=\"friends__item-link btn-out\">Learn more</button>\n    ");
     cardsParent.addEventListener('click', function (e) {
@@ -302,15 +302,21 @@ function slider() {
       nextArrow = _ref.nextArrow,
       prevArrow = _ref.prevArrow,
       wrapper = _ref.wrapper,
-      inner = _ref.inner;
+      inner = _ref.inner,
+      _ref$laptop = _ref.laptop,
+      laptop = _ref$laptop === void 0 ? 2 : _ref$laptop,
+      _ref$desctop = _ref.desctop,
+      desctop = _ref$desctop === void 0 ? 3 : _ref$desctop,
+      _ref$mobile = _ref.mobile,
+      mobile = _ref$mobile === void 0 ? 1 : _ref$mobile;
 
   var chekcScreenSize = function chekcScreenSize() {
-    var len = 2;
+    var len = laptop;
 
     if (window.screen.width >= 1280) {
-      len = 3;
+      len = desctop;
     } else if (window.screen.width < 768) {
-      len = 1;
+      len = mobile;
     }
 
     return len;
@@ -326,27 +332,19 @@ function slider() {
       itemLeft = document.querySelector('.slider__item-left'),
       itemRight = document.querySelector('.slider__item-right'),
       itemVisible = document.querySelector('.slider__item-visible');
-  var randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-  randomThreeArr.forEach(function (idx) {
-    return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
+  var randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
+  randomThreeArr.forEach(function (obj) {
+    return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
   });
   window.addEventListener('resize', function () {
     size = chekcScreenSize();
 
-    if (itemVisible.childNodes.length > size) {
-      itemVisible.innerHTML = '';
+    if (randomThreeArr.length !== size) {
+      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
       setTimeout(function () {
-        randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-        randomThreeArr.forEach(function (idx) {
-          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
-        });
-      });
-    } else if (itemVisible.childNodes.length < size) {
-      itemVisible.innerHTML = '';
-      setTimeout(function () {
-        randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateRandomThreeCards)(size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-        randomThreeArr.forEach(function (idx) {
-          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
+        itemVisible.innerHTML = '';
+        randomThreeArr.forEach(function (obj) {
+          return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-visible', obj).renderCard();
         });
       });
     }
@@ -354,50 +352,61 @@ function slider() {
 
   var moveLeft = function moveLeft(e) {
     sliderInner.classList.add("slider--transition-left");
+    prevBtn.classList.add('arrow-btns__left--disable');
     prevBtn.removeEventListener("click", moveLeft);
     nextBtn.removeEventListener("click", moveRight);
-    prevBtn.classList.add('arrow-btns__left--disable');
-    itemLeft.innerHTML = '';
-    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateNextRandomThreeCards)(randomThreeArr, size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-    randomThreeArr.forEach(function (idx) {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-left', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
+    setTimeout(function () {
+      itemLeft.innerHTML = '';
+      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateNextRandomCards)(randomThreeArr, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
+      randomThreeArr.forEach(function (obj) {
+        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-left', obj).renderCard();
+      });
     });
+    setTimeout(function () {
+      itemVisible.innerHTML = itemLeft.innerHTML;
+      itemLeft.innerHTML = '';
+      sliderInner.classList.remove("slider--transition-left");
+      prevBtn.classList.remove('arrow-btns__left--disable');
+      prevBtn.addEventListener("click", moveLeft);
+      nextBtn.addEventListener("click", moveRight);
+    }, 1000);
   };
 
   var moveRight = function moveRight(e) {
     sliderInner.classList.add("slider--transition-right");
+    nextBtn.classList.add('arrow-btns__right--disable');
     nextBtn.removeEventListener("click", moveLeft);
     nextBtn.removeEventListener("click", moveRight);
-    itemRight.innerHTML = '';
-    nextBtn.classList.add('arrow-btns__right--disable');
-    randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateNextRandomThreeCards)(randomThreeArr, size, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
-    console.log(randomThreeArr);
     setTimeout(function () {
-      randomThreeArr.forEach(function (idx) {
-        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-right', _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData[idx]).renderCard();
+      itemRight.innerHTML = '';
+      randomThreeArr = (0,_generateCards__WEBPACK_IMPORTED_MODULE_4__.generateNextRandomCards)(randomThreeArr, _data_petsData__WEBPACK_IMPORTED_MODULE_2__.petsData);
+      randomThreeArr.forEach(function (obj) {
+        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__item-right', obj).renderCard();
       });
     });
+    setTimeout(function () {
+      itemVisible.innerHTML = itemRight.innerHTML;
+      itemRight.innerHTML = '';
+      sliderInner.classList.remove("slider--transition-right");
+      nextBtn.classList.remove('arrow-btns__right--disable');
+      prevBtn.addEventListener("click", moveLeft);
+      nextBtn.addEventListener("click", moveRight);
+    }, 1000);
   };
 
   prevBtn.addEventListener("click", moveLeft);
-  nextBtn.addEventListener("click", moveRight);
-  sliderInner.addEventListener("animationend", function (animationEvent) {
-    prevBtn.classList.remove('arrow-btns__left--disable');
-    nextBtn.classList.remove('arrow-btns__right--disable');
-
-    if (animationEvent.animationName === "move-left") {
-      sliderInner.classList.remove("slider--transition-left");
-      itemVisible.innerHTML = itemLeft.innerHTML;
-      itemLeft.innerHTML = '';
-    } else {
-      sliderInner.classList.remove("slider--transition-right");
-      itemVisible.innerHTML = itemRight.innerHTML;
-      itemRight.innerHTML = '';
-    }
-
-    prevBtn.addEventListener("click", moveLeft);
-    nextBtn.addEventListener("click", moveRight);
-  });
+  nextBtn.addEventListener("click", moveRight); // sliderInner.addEventListener("animationend", (animationEvent) => {
+  // 	prevBtn.classList.remove('arrow-btns__left--disable')
+  // 	nextBtn.classList.remove('arrow-btns__right--disable')
+  // 	if (animationEvent.animationName === "move-left") {
+  // 	} else {
+  // 		sliderInner.classList.remove("slider--transition-right");
+  // 		itemVisible.innerHTML = itemRight.innerHTML
+  // 		itemRight.innerHTML = ''
+  // 	}
+  // 	prevBtn.addEventListener("click", moveLeft);
+  // 	nextBtn.addEventListener("click", moveRight);
+  // })
 }
 
 slider({
@@ -419,8 +428,8 @@ slider({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "generateNextRandomThreeCards": () => (/* binding */ generateNextRandomThreeCards),
-/* harmony export */   "generateRandomThreeCards": () => (/* binding */ generateRandomThreeCards)
+/* harmony export */   "generateNextRandomCards": () => (/* binding */ generateNextRandomCards),
+/* harmony export */   "generateRandomCards": () => (/* binding */ generateRandomCards)
 /* harmony export */ });
 /* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.iterator.js */ "./node_modules/core-js/modules/es.array.iterator.js");
 /* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_0__);
@@ -432,12 +441,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
 /* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
-/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
-/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.map.js */ "./node_modules/core-js/modules/es.array.map.js");
+/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -446,74 +453,60 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-// function generateRandomThreeCards(size, data) {
-//   let threeRandomCards = []
-//   for (let i = 0; i < size; i++) {
-//     let n = data[Math.floor(Math.random() * data.length)]
-//     threeRandomCards.push(n)
-//   }
-//   let uniqueValues = new Set(threeRandomCards.map(obj => obj.name));
-//   while (uniqueValues.size < threeRandomCards.length) {
-//     threeRandomCards = []
-//     for (let i = 0; i < size; i++) {
-//       let n = data[Math.floor(Math.random() * data.length)]
-//       threeRandomCards.push(n)
-//     }
-//     uniqueValues = new Set(threeRandomCards.map(obj => obj.name));
-//   }
-//   return threeRandomCards
-// }
-function generateRandomThreeCards(size, data) {
+function generateRandomCards(size, data) {
   var threeRandomCards = [];
 
   for (var i = 0; i < size; i++) {
-    var n = Math.floor(Math.random() * data.length);
+    var n = data[Math.floor(Math.random() * data.length)];
     threeRandomCards.push(n);
   }
 
-  var uniqueValues = new Set(threeRandomCards);
+  var uniqueValues = new Set(threeRandomCards.map(function (obj) {
+    return obj.name;
+  }));
 
   while (uniqueValues.size < threeRandomCards.length) {
     threeRandomCards = [];
 
     for (var _i = 0; _i < size; _i++) {
-      var _n = Math.floor(Math.random() * data.length);
-
+      var _n = data[Math.floor(Math.random() * data.length)];
       threeRandomCards.push(_n);
     }
 
-    uniqueValues = new Set(threeRandomCards);
+    uniqueValues = new Set(threeRandomCards.map(function (obj) {
+      return obj.name;
+    }));
   }
 
   return threeRandomCards;
 }
 
-var arr = [0, 1, 1];
+function generateNextRandomCards() {
+  var prevCards = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var data = arguments.length > 1 ? arguments[1] : undefined;
+  var nextCards = [];
 
-function generateNextRandomThreeCards() {
-  var prevThreeIdx = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var size = arguments.length > 1 ? arguments[1] : undefined;
-  var data = arguments.length > 2 ? arguments[2] : undefined;
-  var nextThreeCards = [];
-
-  if (prevThreeIdx.length) {
+  if (prevCards.length) {
     var _loop = function _loop() {
-      var number = Math.floor(Math.random() * 8);
-      prevThreeIdx.forEach(function (idx) {
-        if (!nextThreeCards.includes(idx) && !prevThreeIdx.includes(number) && !nextThreeCards.includes(number)) {
-          nextThreeCards.push(number);
-          return;
-        }
-      });
+      var num = Math.floor(Math.random() * data.length);
+
+      if (prevCards.every(function (obj) {
+        return obj.name !== data[num].name && nextCards.every(function (obj2) {
+          return obj2.name !== data[num].name;
+        });
+      })) {
+        nextCards.push(data[num]);
+      } else {
+        num = Math.floor(Math.random() * data.length);
+      }
     };
 
-    while (nextThreeCards.length < prevThreeIdx.length) {
+    while (nextCards.length < prevCards.length) {
       _loop();
     }
   }
 
-  return nextThreeCards;
+  return nextCards;
 }
 
 
@@ -1397,31 +1390,6 @@ module.exports = function (target, source, exceptions) {
       defineProperty(target, key, getOwnPropertyDescriptor(source, key));
     }
   }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/correct-is-regexp-logic.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/core-js/internals/correct-is-regexp-logic.js ***!
-  \*******************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
-
-var MATCH = wellKnownSymbol('match');
-
-module.exports = function (METHOD_NAME) {
-  var regexp = /./;
-  try {
-    '/./'[METHOD_NAME](regexp);
-  } catch (error1) {
-    try {
-      regexp[MATCH] = false;
-      return '/./'[METHOD_NAME](regexp);
-    } catch (error2) { /* empty */ }
-  } return false;
 };
 
 
@@ -2661,28 +2629,6 @@ module.exports = false;
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/is-regexp.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/core-js/internals/is-regexp.js ***!
-  \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
-var classof = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
-var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
-
-var MATCH = wellKnownSymbol('match');
-
-// `IsRegExp` abstract operation
-// https://tc39.es/ecma262/#sec-isregexp
-module.exports = function (it) {
-  var isRegExp;
-  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : classof(it) == 'RegExp');
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/internals/is-symbol.js":
 /*!*****************************************************!*\
   !*** ./node_modules/core-js/internals/is-symbol.js ***!
@@ -2953,26 +2899,6 @@ var inspectSource = __webpack_require__(/*! ../internals/inspect-source */ "./no
 var WeakMap = global.WeakMap;
 
 module.exports = isCallable(WeakMap) && /native code/.test(inspectSource(WeakMap));
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/not-a-regexp.js":
-/*!********************************************************!*\
-  !*** ./node_modules/core-js/internals/not-a-regexp.js ***!
-  \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var isRegExp = __webpack_require__(/*! ../internals/is-regexp */ "./node_modules/core-js/internals/is-regexp.js");
-
-var TypeError = global.TypeError;
-
-module.exports = function (it) {
-  if (isRegExp(it)) {
-    throw TypeError("The method doesn't accept regular expressions");
-  } return it;
-};
 
 
 /***/ }),
@@ -4204,32 +4130,6 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/es.array.includes.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/core-js/modules/es.array.includes.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var $includes = (__webpack_require__(/*! ../internals/array-includes */ "./node_modules/core-js/internals/array-includes.js").includes);
-var addToUnscopables = __webpack_require__(/*! ../internals/add-to-unscopables */ "./node_modules/core-js/internals/add-to-unscopables.js");
-
-// `Array.prototype.includes` method
-// https://tc39.es/ecma262/#sec-array.prototype.includes
-$({ target: 'Array', proto: true }, {
-  includes: function includes(el /* , fromIndex = 0 */) {
-    return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
-  }
-});
-
-// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
-addToUnscopables('includes');
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/modules/es.array.iterator.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.iterator.js ***!
@@ -4298,6 +4198,32 @@ addToUnscopables('entries');
 if (!IS_PURE && DESCRIPTORS && values.name !== 'values') try {
   defineProperty(values, 'name', { value: 'values' });
 } catch (error) { /* empty */ }
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.array.map.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.map.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var $map = (__webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js").map);
+var arrayMethodHasSpeciesSupport = __webpack_require__(/*! ../internals/array-method-has-species-support */ "./node_modules/core-js/internals/array-method-has-species-support.js");
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('map');
+
+// `Array.prototype.map` method
+// https://tc39.es/ecma262/#sec-array.prototype.map
+// with adding support of @@species
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
+  map: function map(callbackfn /* , thisArg */) {
+    return $map(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
 
 
 /***/ }),
@@ -4494,38 +4420,6 @@ collection('Set', function (init) {
 
 // TODO: Remove this module from `core-js@4` since it's replaced to module below
 __webpack_require__(/*! ../modules/es.set.constructor */ "./node_modules/core-js/modules/es.set.constructor.js");
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/es.string.includes.js":
-/*!************************************************************!*\
-  !*** ./node_modules/core-js/modules/es.string.includes.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ "./node_modules/core-js/internals/function-uncurry-this.js");
-var notARegExp = __webpack_require__(/*! ../internals/not-a-regexp */ "./node_modules/core-js/internals/not-a-regexp.js");
-var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
-var toString = __webpack_require__(/*! ../internals/to-string */ "./node_modules/core-js/internals/to-string.js");
-var correctIsRegExpLogic = __webpack_require__(/*! ../internals/correct-is-regexp-logic */ "./node_modules/core-js/internals/correct-is-regexp-logic.js");
-
-var stringIndexOf = uncurryThis(''.indexOf);
-
-// `String.prototype.includes` method
-// https://tc39.es/ecma262/#sec-string.prototype.includes
-$({ target: 'String', proto: true, forced: !correctIsRegExpLogic('includes') }, {
-  includes: function includes(searchString /* , position = 0 */) {
-    return !!~stringIndexOf(
-      toString(requireObjectCoercible(this)),
-      toString(notARegExp(searchString)),
-      arguments.length > 1 ? arguments[1] : undefined
-    );
-  }
-});
 
 
 /***/ }),

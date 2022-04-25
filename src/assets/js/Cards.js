@@ -76,7 +76,7 @@ export default class PetCard {
     const cardsParent = document.querySelector('.slider__item-visible')
     const card = document.createElement('div')
     card.dataset.id = `${this.name}`
-    this.parentElem === '.friends-pets__items' ? card.classList.add('friends-pets__item') : card.classList.add('friends__item')
+    card.classList.add('friends__item')
     card.classList.add('slider__item')
 
     card.innerHTML = `

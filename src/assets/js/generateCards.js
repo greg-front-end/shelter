@@ -1,54 +1,33 @@
-// function generateRandomThreeCards(size, data) {
-//   let threeRandomCards = []
-//   for (let i = 0; i < size; i++) {
-//     let n = data[Math.floor(Math.random() * data.length)]
-//     threeRandomCards.push(n)
-//   }
-//   let uniqueValues = new Set(threeRandomCards.map(obj => obj.name));
-
-//   while (uniqueValues.size < threeRandomCards.length) {
-//     threeRandomCards = []
-//     for (let i = 0; i < size; i++) {
-//       let n = data[Math.floor(Math.random() * data.length)]
-//       threeRandomCards.push(n)
-//     }
-//     uniqueValues = new Set(threeRandomCards.map(obj => obj.name));
-//   }
-//   return threeRandomCards
-// }
-
-function generateRandomThreeCards(size, data) {
+function generateRandomCards(size, data) {
   let threeRandomCards = []
   for (let i = 0; i < size; i++) {
-    let n = Math.floor(Math.random() * data.length)
+    let n = data[Math.floor(Math.random() * data.length)]
     threeRandomCards.push(n)
   }
-  let uniqueValues = new Set(threeRandomCards);
+  let uniqueValues = new Set(threeRandomCards.map(obj => obj.name));
   while (uniqueValues.size < threeRandomCards.length) {
     threeRandomCards = []
     for (let i = 0; i < size; i++) {
-      let n = Math.floor(Math.random() * data.length)
+      let n = data[Math.floor(Math.random() * data.length)]
       threeRandomCards.push(n)
     }
-    uniqueValues = new Set(threeRandomCards);
+    uniqueValues = new Set(threeRandomCards.map(obj => obj.name));
   }
   return threeRandomCards
 }
-let arr = [0, 1, 1]
-function generateNextRandomThreeCards(prevThreeIdx = [], size, data) {
-  let nextThreeCards = []
-  if (prevThreeIdx.length) {
-    while (nextThreeCards.length < prevThreeIdx.length) {
-      let number = Math.floor(Math.random() * 8)
-      prevThreeIdx.forEach(idx => {
-        if (!nextThreeCards.includes(idx) && !prevThreeIdx.includes(number) && !nextThreeCards.includes(number)) {
-          nextThreeCards.push(number)
-          return
-        }
-      })
+function generateNextRandomCards(prevCards = [], data) {
+  let nextCards = []
+
+  if (prevCards.length) {
+    while (nextCards.length < prevCards.length) {
+      let num = Math.floor(Math.random() * data.length)
+      if (prevCards.every(obj => obj.name !== data[num].name && nextCards.every(obj2 => obj2.name !== data[num].name))) {
+        nextCards.push(data[num])
+      } else {
+        num = Math.floor(Math.random() * data.length)
+      }
     }
   }
-
-  return nextThreeCards
+  return nextCards
 }
-export { generateRandomThreeCards, generateNextRandomThreeCards }
+export { generateRandomCards, generateNextRandomCards }

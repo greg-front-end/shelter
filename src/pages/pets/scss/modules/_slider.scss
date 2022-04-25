@@ -1,0 +1,104 @@
+@use '../../../main/scss/2-helpers/' as *;
+$widhtXS: 270px;
+$widthMD: 580px;
+$widthLG: 1200px;
+.slider {
+  width: $widhtXS;
+  @include breakpoint(md, min) {
+    width: $widthMD;
+  }
+  @include breakpoint(lg, min) {
+    width: $widthLG;
+  }
+  &__inner {
+    left: -$widhtXS;
+    @include breakpoint(md, min) {
+      left: -$widthMD;
+    }
+    @include breakpoint(lg, min) {
+      left: -$widthLG;
+    }
+  }
+  &__item {
+    height: auto;
+    width: $widhtXS;
+  }
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: $widhtXS;
+    @include breakpoint(md, min) {
+      width: $widthMD;
+    }
+    @include breakpoint(lg, min) {
+      width: $widthLG;
+    }
+  }
+  &--transition-right {
+    animation: move-right 1s;
+  }
+  &--transition-left {
+    animation: move-left 1s;
+  } 
+}
+
+@keyframes move-right {
+  from {
+    left: -$widhtXS;
+  }
+  to {
+    left: -($widhtXS + $widhtXS);
+  }
+}
+@include breakpoint(md, min) {
+  @keyframes move-right {
+    from {
+      left: -$widthMD; 
+    }
+    to {
+      left: -($widthMD + $widthMD);
+    }
+  }
+}
+@include breakpoint(lg, min) {
+  @keyframes move-right {
+    from {
+      left: -$widthLG;
+    }
+    to {
+      left: -($widthLG + $widthLG);
+    }
+  }
+}
+@keyframes move-left {
+    from {
+      left: -$widhtXS;
+    }
+    to {
+      left: 0;	
+    }
+}
+@include breakpoint(md, min) {
+  @keyframes move-left {
+    from {
+      left: -$widthMD;
+    }
+    to {
+      left: 0;	
+    }
+  }
+}
+@include breakpoint(lg, min) {
+  @keyframes move-left {
+    from {
+      left: -$widthLG;
+    }
+    to {
+      left: 0;	
+    }
+  }
+}

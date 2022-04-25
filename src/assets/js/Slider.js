@@ -1,14 +1,14 @@
 import { petsData } from '../data/petsData'
 import PetCard from './Cards'
-import { generateRandomThreeCards, generateNextRandomThreeCards } from './generateCards'
-function slider({ slide, nextArrow, prevArrow, wrapper, inner } = {}) {
+import { generateRandomCards, generateNextRandomCards } from './generateCards'
+function slider({ slide, nextArrow, prevArrow, wrapper, inner, laptop = 2, desctop = 3, mobile = 1 } = {}) {
 
 	const chekcScreenSize = () => {
-		let len = 2
+		let len = laptop
 		if (window.screen.width >= 1280) {
-			len = 3
+			len = desctop
 		} else if (window.screen.width < 768) {
-			len = 1
+			len = mobile
 		}
 		return len
 	}
@@ -23,68 +23,80 @@ function slider({ slide, nextArrow, prevArrow, wrapper, inner } = {}) {
 		itemRight = document.querySelector('.slider__item-right'),
 		itemVisible = document.querySelector('.slider__item-visible');
 
-	let randomThreeArr = generateRandomThreeCards(size, petsData)
-	randomThreeArr.forEach(idx => new PetCard('.slider__item-visible', petsData[idx]).renderCard())
+	let randomThreeArr = generateRandomCards(size, petsData)
+	randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 
 	window.addEventListener('resize', () => {
 		size = chekcScreenSize()
-		if (itemVisible.childNodes.length > size) {
-			itemVisible.innerHTML = ''
+		if (randomThreeArr.length !== size) {
+			randomThreeArr = generateRandomCards(size, petsData)
 			setTimeout(() => {
-				randomThreeArr = generateRandomThreeCards(size, petsData)
-				randomThreeArr.forEach(idx => new PetCard('.slider__item-visible', petsData[idx]).renderCard())
-			})
-		} else if (itemVisible.childNodes.length < size) {
-			itemVisible.innerHTML = ''
-			setTimeout(() => {
-				randomThreeArr = generateRandomThreeCards(size, petsData)
-				randomThreeArr.forEach(idx => new PetCard('.slider__item-visible', petsData[idx]).renderCard())
+				itemVisible.innerHTML = ''
+				randomThreeArr.forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
 			})
 		}
 	})
 
 	const moveLeft = (e) => {
 		sliderInner.classList.add("slider--transition-left");
+		prevBtn.classList.add('arrow-btns__left--disable')
 		prevBtn.removeEventListener("click", moveLeft);
 		nextBtn.removeEventListener("click", moveRight);
-		prevBtn.classList.add('arrow-btns__left--disable')
-		itemLeft.innerHTML = '';
-		randomThreeArr = generateNextRandomThreeCards(randomThreeArr, size, petsData)
-		randomThreeArr.forEach(idx => new PetCard('.slider__item-left', petsData[idx]).renderCard())
+		setTimeout(() => {
+			itemLeft.innerHTML = '';
+			randomThreeArr = generateNextRandomCards(randomThreeArr, petsData)
+			randomThreeArr.forEach(obj => new PetCard('.slider__item-left', obj).renderCard())
+		})
+		setTimeout(() => {
+			itemVisible.innerHTML = itemLeft.innerHTML
+			itemLeft.innerHTML = ''
+			sliderInner.classList.remove("slider--transition-left");
+			prevBtn.classList.remove('arrow-btns__left--disable')
+
+			prevBtn.addEventListener("click", moveLeft);
+			nextBtn.addEventListener("click", moveRight);
+		}, 1000)
 	};
 
 	const moveRight = (e) => {
 		sliderInner.classList.add("slider--transition-right");
+		nextBtn.classList.add('arrow-btns__right--disable')
 		nextBtn.removeEventListener("click", moveLeft);
 		nextBtn.removeEventListener("click", moveRight);
-		itemRight.innerHTML = '';
-		nextBtn.classList.add('arrow-btns__right--disable')
-		randomThreeArr = generateNextRandomThreeCards(randomThreeArr, size, petsData)
-		console.log(randomThreeArr)
 		setTimeout(() => {
-			randomThreeArr.forEach(idx => new PetCard('.slider__item-right', petsData[idx]).renderCard())
+			itemRight.innerHTML = '';
+			randomThreeArr = generateNextRandomCards(randomThreeArr, petsData)
+			randomThreeArr.forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
 		})
+		setTimeout(() => {
+			itemVisible.innerHTML = itemRight.innerHTML
+			itemRight.innerHTML = ''
+			sliderInner.classList.remove("slider--transition-right");
+			nextBtn.classList.remove('arrow-btns__right--disable')
+
+			prevBtn.addEventListener("click", moveLeft);
+			nextBtn.addEventListener("click", moveRight);
+		}, 1000)
 	};
 
 	prevBtn.addEventListener("click", moveLeft);
 	nextBtn.addEventListener("click", moveRight);
 
-	sliderInner.addEventListener("animationend", (animationEvent) => {
-		prevBtn.classList.remove('arrow-btns__left--disable')
-		nextBtn.classList.remove('arrow-btns__right--disable')
-		if (animationEvent.animationName === "move-left") {
-			sliderInner.classList.remove("slider--transition-left");
-			itemVisible.innerHTML = itemLeft.innerHTML
-			itemLeft.innerHTML = ''
-		} else {
-			sliderInner.classList.remove("slider--transition-right");
-			itemVisible.innerHTML = itemRight.innerHTML
-			itemRight.innerHTML = ''
-		}
 
-		prevBtn.addEventListener("click", moveLeft);
-		nextBtn.addEventListener("click", moveRight);
-	})
+	// sliderInner.addEventListener("animationend", (animationEvent) => {
+	// 	prevBtn.classList.remove('arrow-btns__left--disable')
+	// 	nextBtn.classList.remove('arrow-btns__right--disable')
+	// 	if (animationEvent.animationName === "move-left") {
+
+	// 	} else {
+	// 		sliderInner.classList.remove("slider--transition-right");
+	// 		itemVisible.innerHTML = itemRight.innerHTML
+	// 		itemRight.innerHTML = ''
+	// 	}
+
+	// 	prevBtn.addEventListener("click", moveLeft);
+	// 	nextBtn.addEventListener("click", moveRight);
+	// })
 }
 
 slider({

@@ -31,43 +31,16 @@
   }
   &__items {
     row-gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
     margin-inline: auto;
     margin-bottom: 42px;
     @include breakpoint(md, min) {
-      max-width: 708px;
       column-gap: 40px;
-      justify-content: center;
       margin-bottom: 40px;
     }
     @include breakpoint(lg, min) {
-      column-gap: 40px;
       margin-bottom: 60px;
-      max-width: 100%;
     }
   }
-  &__item {
-    &:is(:not(:nth-child(1))) {
-      display: flex;
-    }
-    &:nth-child(n+4) {
-      display: none;
-    }
-    @include breakpoint(md, min) {
-      &:nth-child(n+4) {
-        display: flex;
-      }
-      &:nth-child(7), &:nth-child(8) {
-        display: none;
-      }
-    }
-    @include breakpoint(lg, min) {
-      &:nth-child(7), &:nth-child(8) {
-        display: flex;
-      }
-    }
-  }  
 }
 .pagin {
   height: 52px;
