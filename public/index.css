@@ -1238,7 +1238,9 @@ body {
         -ms-flex-align: center;
             align-items: center;
     height: 100vh;
-    margin-top: 250px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 @media (max-width: 767px) {

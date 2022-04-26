@@ -43,7 +43,7 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
     return len
   }
   let size = chekcScreenSize();
-  let page = 1
+  let page = 0
   let totalPage = 48 / size
 
   const prevBtn = document.querySelector(prevArrow),
@@ -78,22 +78,31 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
       setTimeout(() => {
         itemVisible.innerHTML = ''
         pets8x2[0].forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
-      })
+        pageNumber.textContent = 1
+        page = 0
+        toggleDisableLeftBtns()
+      }, 500)
     } else if (size === 6) {
       setTimeout(() => {
         itemVisible.innerHTML = ''
         pets6x2[0].forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
-      })
+        pageNumber.textContent = 1
+        page = 0
+        toggleDisableLeftBtns()
+      }, 500)
     } else {
       setTimeout(() => {
         itemVisible.innerHTML = ''
         pets3x1[0].forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
-      })
+        pageNumber.textContent = 1
+        page = 0
+        toggleDisableLeftBtns()
+      }, 500)
     }
   })
 
   const toggleDisableLeftBtns = () => {
-    if (page < 2) {
+    if (page < 1) {
       firstPageBtn.classList.add('pagin__btn--inactive')
       prevBtn.classList.add('pagin__btn--inactive')
       firstPageBtn.disabled = true
@@ -102,9 +111,8 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
       nextBtn.classList.remove('pagin__btn--inactive')
       lastPageBtn.disabled = false
       nextBtn.disabled = false
-      page = 1
     }
-    if (page > 2 && page < totalPage) {
+    if (page > 0 && page < totalPage - 1) {
       lastPageBtn.classList.remove('pagin__btn--inactive')
       nextBtn.classList.remove('pagin__btn--inactive')
       lastPageBtn.disabled = false
@@ -112,13 +120,13 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
     }
   }
   const toggleDisableRightBtns = () => {
-    if (page > 1) {
+    if (page > 0) {
       firstPageBtn.classList.remove('pagin__btn--inactive')
       prevBtn.classList.remove('pagin__btn--inactive')
       firstPageBtn.disabled = false
       prevBtn.disabled = false
     }
-    if (page === totalPage) {
+    if (page === totalPage - 1) {
       lastPageBtn.classList.add('pagin__btn--inactive')
       nextBtn.classList.add('pagin__btn--inactive')
       lastPageBtn.disabled = true
@@ -149,8 +157,12 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
     lastPageBtn.addEventListener('click', moveToEnd)
     firstPageBtn.addEventListener('click', moveToFirst)
   }
-  const drawCardsToLeft = () => {
+  const moveLeft = () => {
+    sliderInner.classList.add("slider--transition-left");
+    addBtnClasses()
+    removeBtnListeneres()
     setTimeout(() => {
+      --page
       itemLeft.innerHTML = '';
       if (size === 8) {
         pets8x2[page].forEach(obj => new PetCard('.slider__item-left', obj).renderCard())
@@ -159,28 +171,8 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
       } else {
         pets3x1[page].forEach(obj => new PetCard('.slider__item-left', obj).renderCard())
       }
-      pageNumber.textContent = page
+      pageNumber.textContent = page + 1
     })
-  }
-  const drawCardsToRight = () => {
-    setTimeout(() => {
-      itemRight.innerHTML = '';
-      if (size === 8) {
-        pets8x2[page - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
-      } else if (size === 6) {
-        pets6x2[page - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
-      } else {
-        pets3x1[page - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
-      }
-      pageNumber.textContent = page
-    })
-  }
-  const moveLeft = () => {
-    sliderInner.classList.add("slider--transition-left");
-    addBtnClasses()
-    removeBtnListeneres()
-    drawCardsToLeft()
-    --page
     setTimeout(() => {
       itemVisible.innerHTML = itemLeft.innerHTML
       itemLeft.innerHTML = ''
@@ -194,8 +186,18 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
     sliderInner.classList.add("slider--transition-right");
     addBtnClasses()
     removeBtnListeneres()
-    drawCardsToRight()
-    ++page
+    setTimeout(() => {
+      itemRight.innerHTML = '';
+      ++page
+      if (size === 8) {
+        pets8x2[page].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+      } else if (size === 6) {
+        pets6x2[page].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+      } else {
+        pets3x1[page].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+      }
+      pageNumber.textContent = page + 1
+    })
     setTimeout(() => {
       itemVisible.innerHTML = itemRight.innerHTML
       itemRight.innerHTML = ''
@@ -212,14 +214,18 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
     setTimeout(() => {
       itemRight.innerHTML = '';
       if (size === 8) {
-        pets8x2[totalPage - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+        pets8x2[pets8x2.length - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+        page = pets8x2.length - 1
+        pageNumber.textContent = totalPage
       } else if (size === 6) {
-        pets6x2[totalPage - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+        pets6x2[pets6x2.length - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+        page = pets6x2.length - 1
+        pageNumber.textContent = totalPage
       } else {
-        pets3x1[totalPage - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+        pets3x1[pets3x1.length - 1].forEach(obj => new PetCard('.slider__item-right', obj).renderCard())
+        page = pets3x1.length - 1
+        pageNumber.textContent = totalPage
       }
-      pageNumber.textContent = totalPage
-      page = totalPage
     })
     setTimeout(() => {
       itemVisible.innerHTML = itemRight.innerHTML
@@ -244,8 +250,8 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
         pets3x1[0].forEach(obj => new PetCard('.slider__item-left', obj).renderCard())
       }
       pageNumber.textContent = 1
+      page = 0
     })
-    page = 1
     setTimeout(() => {
       itemVisible.innerHTML = itemLeft.innerHTML
       itemLeft.innerHTML = ''
