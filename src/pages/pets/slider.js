@@ -1,6 +1,5 @@
 import { petsData } from '../../assets/data/petsData'
 import PetCard from '../../assets/js/Cards'
-import { generateRandomCards, generateNextRandomCards } from '../../assets/js/generateCards'
 function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, prevArrow, wrapper, inner, laptop = 6, desctop = 8, mobile = 3 } = {}) {
   const pets8x2 = [
     [...petsData],
@@ -31,13 +30,7 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
   }
 
   Array.prototype.shuffleCardArray = function () {
-    for (let i = this.length - 1; i > 0; i--) {
-      let num = Math.floor(Math.random() * (i + 1));
-      let tmp = this[num];
-      this[num] = this[i];
-      this[i] = tmp;
-    }
-    return this;
+    this.sort((a, b) => 0.5 - Math.random());
   }
 
   const chekcScreenSize = () => {
@@ -132,11 +125,31 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
       nextBtn.disabled = true
     }
   }
-  const moveLeft = (e) => {
-    sliderInner.classList.add("slider--transition-left");
+  const removeBtnsClasses = () => {
+    prevBtn.classList.remove('arrow-btns__left--disable')
+    nextBtn.classList.remove('arrow-btns__right--disable')
+    lastPageBtn.classList.remove('arrow-btns__right--disable')
+    firstPageBtn.classList.remove('arrow-btns__left--disable')
+  }
+  const addBtnClasses = () => {
     prevBtn.classList.add('arrow-btns__left--disable')
+    nextBtn.classList.add('arrow-btns__right--disable')
+    lastPageBtn.classList.add('arrow-btns__right--disable')
+    firstPageBtn.classList.add('arrow-btns__left--disable')
+  }
+  const removeBtnListeneres = () => {
     prevBtn.removeEventListener("click", moveLeft);
     nextBtn.removeEventListener("click", moveRight);
+    lastPageBtn.removeEventListener('click', moveToEnd)
+    firstPageBtn.removeEventListener('click', moveToFirst)
+  }
+  const addBtnListeneres = () => {
+    prevBtn.addEventListener("click", moveLeft);
+    nextBtn.addEventListener("click", moveRight);
+    lastPageBtn.addEventListener('click', moveToEnd)
+    firstPageBtn.addEventListener('click', moveToFirst)
+  }
+  const drawCardsToLeft = () => {
     setTimeout(() => {
       itemLeft.innerHTML = '';
       if (size === 8) {
@@ -148,22 +161,8 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
       }
       pageNumber.textContent = page
     })
-    --page
-    setTimeout(() => {
-      itemVisible.innerHTML = itemLeft.innerHTML
-      itemLeft.innerHTML = ''
-      sliderInner.classList.remove("slider--transition-left");
-      prevBtn.classList.remove('arrow-btns__left--disable')
-      toggleDisableLeftBtns()
-      prevBtn.addEventListener("click", moveLeft);
-      nextBtn.addEventListener("click", moveRight);
-    }, 1000)
-  };
-  const moveRight = (e) => {
-    sliderInner.classList.add("slider--transition-right");
-    nextBtn.classList.add('arrow-btns__right--disable')
-    nextBtn.removeEventListener("click", moveLeft);
-    nextBtn.removeEventListener("click", moveRight);
+  }
+  const drawCardsToRight = () => {
     setTimeout(() => {
       itemRight.innerHTML = '';
       if (size === 8) {
@@ -175,23 +174,41 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
       }
       pageNumber.textContent = page
     })
+  }
+  const moveLeft = () => {
+    sliderInner.classList.add("slider--transition-left");
+    addBtnClasses()
+    removeBtnListeneres()
+    drawCardsToLeft()
+    --page
+    setTimeout(() => {
+      itemVisible.innerHTML = itemLeft.innerHTML
+      itemLeft.innerHTML = ''
+      toggleDisableLeftBtns()
+      removeBtnsClasses()
+      addBtnListeneres()
+      sliderInner.classList.remove("slider--transition-left");
+    }, 1000)
+  };
+  const moveRight = () => {
+    sliderInner.classList.add("slider--transition-right");
+    addBtnClasses()
+    removeBtnListeneres()
+    drawCardsToRight()
     ++page
     setTimeout(() => {
-      toggleDisableRightBtns()
       itemVisible.innerHTML = itemRight.innerHTML
       itemRight.innerHTML = ''
+      toggleDisableRightBtns()
+      removeBtnsClasses()
+      addBtnListeneres()
       sliderInner.classList.remove("slider--transition-right");
-      nextBtn.classList.remove('arrow-btns__right--disable')
-
-      prevBtn.addEventListener("click", moveLeft);
-      nextBtn.addEventListener("click", moveRight);
     }, 1000)
   };
   const moveToEnd = () => {
     sliderInner.classList.add("slider--transition-right");
-    nextBtn.classList.add('arrow-btns__right--disable')
-    nextBtn.removeEventListener("click", moveLeft);
-    nextBtn.removeEventListener("click", moveRight);
+    addBtnClasses()
+    removeBtnListeneres()
     setTimeout(() => {
       itemRight.innerHTML = '';
       if (size === 8) {
@@ -205,21 +222,18 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
       page = totalPage
     })
     setTimeout(() => {
-      toggleDisableRightBtns()
       itemVisible.innerHTML = itemRight.innerHTML
       itemRight.innerHTML = ''
-      sliderInner.classList.remove("slider--transition-right");
-      nextBtn.classList.remove('arrow-btns__right--disable')
       toggleDisableRightBtns()
-      prevBtn.addEventListener("click", moveLeft);
-      nextBtn.addEventListener("click", moveRight);
+      removeBtnsClasses()
+      addBtnListeneres()
+      sliderInner.classList.remove("slider--transition-right");
     }, 1000)
   }
   const moveToFirst = () => {
     sliderInner.classList.add("slider--transition-left");
-    prevBtn.classList.add('arrow-btns__left--disable')
-    prevBtn.removeEventListener("click", moveLeft);
-    nextBtn.removeEventListener("click", moveRight);
+    addBtnClasses()
+    removeBtnListeneres()
     setTimeout(() => {
       itemLeft.innerHTML = '';
       if (size === 8) {
@@ -235,11 +249,10 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
     setTimeout(() => {
       itemVisible.innerHTML = itemLeft.innerHTML
       itemLeft.innerHTML = ''
-      sliderInner.classList.remove("slider--transition-left");
-      prevBtn.classList.remove('arrow-btns__left--disable')
       toggleDisableLeftBtns()
-      prevBtn.addEventListener("click", moveLeft);
-      nextBtn.addEventListener("click", moveRight);
+      removeBtnsClasses()
+      addBtnListeneres()
+      sliderInner.classList.remove("slider--transition-left");
     }, 1000)
   }
   prevBtn.addEventListener("click", moveLeft);

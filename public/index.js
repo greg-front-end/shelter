@@ -4966,6 +4966,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/assets/icons/close.svg":
+/*!************************************!*\
+  !*** ./src/assets/icons/close.svg ***!
+  \************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "assets/icons/close.svg";
+
+/***/ }),
+
 /***/ "./src/assets/images/pets/pets-charly.png":
 /*!************************************************!*\
   !*** ./src/assets/images/pets/pets-charly.png ***!
@@ -5159,6 +5170,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_images_pets_pets_sophia_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/images/pets/pets-sophia.png */ "./src/assets/images/pets/pets-sophia.png");
 /* harmony import */ var _assets_images_pets_pets_timmy_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../assets/images/pets/pets-timmy.png */ "./src/assets/images/pets/pets-timmy.png");
 /* harmony import */ var _assets_images_pets_pets_woody_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../assets/images/pets/pets-woody.png */ "./src/assets/images/pets/pets-woody.png");
+/* harmony import */ var _assets_icons_close_svg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../assets/icons/close.svg */ "./src/assets/icons/close.svg");
+
 
 
 

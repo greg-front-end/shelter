@@ -73,6 +73,12 @@ body {
   color: var(--white);
   font-size: $main-font-size;
 }
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
 .body--hidden {
   overflow-y: hidden;
 }
