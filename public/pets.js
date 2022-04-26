@@ -122,7 +122,7 @@ burger.addEventListener('click', function (e) {
   nav.classList.toggle('header__nav--open');
   overlay.classList.toggle('overlay--active');
   header.classList.toggle('header__bgc');
-  body.classList.toggle('body--hidden');
+  body.classList.add('body--hidden');
   removeOverlay();
 });
 navLinks.forEach(function (link) {
@@ -140,7 +140,7 @@ navLinks.forEach(function (link) {
 var removeOverlay = function removeOverlay(e) {
   if (overlay.classList.contains('overlay--active')) {
     window.addEventListener('click', function (e) {
-      if (!e.target.closest('.header__nav') && !e.target.closest('.header__nav-burger')) {
+      if (!e.target.closest('.header__nav') && e.target.closest('.overlay')) {
         burger.classList.remove('header__nav-burger--open');
         nav.classList.remove('header__nav--open');
         overlay.classList.remove('overlay--active');
@@ -204,22 +204,29 @@ var PetCard = /*#__PURE__*/_createClass(function PetCard(parentElem) {
   _defineProperty(this, "renderPopup", function () {
     var body = document.querySelector('body');
     var popup = document.querySelector('.popup');
+    var header = document.querySelector('.header');
+    var nav = document.querySelector('.header__nav');
     var elem = document.createElement('div');
     elem.classList.add('popup__inner');
     elem.innerHTML = "\n    <div class=\"popup__close\">\n    <img class=\"popup__close-btn\" src=\"./assets/icons/close.svg\" alt=\"Close\">\n    </div>\n    <div class=\"popup__wrapper\">\n    <div class=\"popup__left-item\">\n    <img class=\"popup__image\" src=".concat(_this.imgSrc, " alt=").concat(_this.breed, ">\n    </div>\n    <div class=\"popup__right-item\">\n    <h3 class=\"popup__title\">").concat(_this.name, "</h3>\n    <h4 class=\"popup__subtitle\">").concat(_this.type, " - ").concat(_this.breed, "</h4>\n    <p class=\"popup__descr\">").concat(_this.descr, "</p>\n    <ul class=\"popup__list\">\n    <li class=\"popup__list-item\"><span>Age</span> ").concat(_this.age, "</li>\n    <li class=\"popup__list-item\"><span>Inoculations:</span> ").concat(_this.inoculations, "</li>\n    <li class=\"popup__list-item\"><span>Diseases:</span> ").concat(_this.diseases, "</li>\n    <li class=\"popup__list-item\"><span>Parasites:</span> ").concat(_this.parasites, "</li>\n    </ul>\n    </div>\n    </div>");
     popup.append(elem);
-    var popupCloseBtn = popup.querySelector('.popup__close');
 
     _this.overlay.classList.add('overlay--active');
 
     popup.classList.add('popup--active');
     body.classList.add('body--hidden');
+    header.classList.add('header__bgc');
+    nav.classList.add('header__bgc');
+    header.style.zIndex = '0';
 
     var removeOverlay = function removeOverlay() {
       _this.overlay.classList.remove('overlay--active');
 
       popup.classList.remove('popup--active');
       body.classList.remove('body--hidden');
+      header.classList.remove('header__bgc');
+      nav.classList.remove('header__bgc');
+      header.style.zIndex = '100';
       setTimeout(function () {
         popup.innerHTML = '';
       }, 300);

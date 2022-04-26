@@ -11,7 +11,7 @@ burger.addEventListener('click', (e) => {
   nav.classList.toggle('header__nav--open')
   overlay.classList.toggle('overlay--active')
   header.classList.toggle('header__bgc')
-  body.classList.toggle('body--hidden')
+  body.classList.add('body--hidden')
   removeOverlay()
 })
 
@@ -31,7 +31,7 @@ navLinks.forEach(link => {
 const removeOverlay = (e) => {
   if (overlay.classList.contains('overlay--active')) {
     window.addEventListener('click', (e) => {
-      if (!e.target.closest('.header__nav') && !e.target.closest('.header__nav-burger')) {
+      if (!e.target.closest('.header__nav') && e.target.closest('.overlay')) {
         burger.classList.remove('header__nav-burger--open')
         nav.classList.remove('header__nav--open')
         overlay.classList.remove('overlay--active')

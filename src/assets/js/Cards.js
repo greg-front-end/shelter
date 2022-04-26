@@ -18,6 +18,8 @@ export default class PetCard {
   renderPopup = () => {
     const body = document.querySelector('body')
     const popup = document.querySelector('.popup')
+    const header = document.querySelector('.header');
+    const nav = document.querySelector('.header__nav')
     const elem = document.createElement('div')
     elem.classList.add('popup__inner')
     elem.innerHTML = `
@@ -43,15 +45,21 @@ export default class PetCard {
 
     popup.append(elem)
 
-    const popupCloseBtn = popup.querySelector('.popup__close')
     this.overlay.classList.add('overlay--active')
     popup.classList.add('popup--active')
     body.classList.add('body--hidden')
+    header.classList.add('header__bgc')
+    nav.classList.add('header__bgc')
+    header.style.zIndex = '0'
+
 
     const removeOverlay = () => {
       this.overlay.classList.remove('overlay--active')
       popup.classList.remove('popup--active')
       body.classList.remove('body--hidden')
+      header.classList.remove('header__bgc')
+      nav.classList.remove('header__bgc')
+      header.style.zIndex = '100'
       setTimeout(() => {
         popup.innerHTML = ''
       }, 300)
