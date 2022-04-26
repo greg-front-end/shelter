@@ -12,9 +12,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "petsData": () => (/* binding */ petsData)
 /* harmony export */ });
+/* harmony import */ var _images_pets_pets_charly_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../images/pets/pets-charly.png */ "./src/assets/images/pets/pets-charly.png");
+/* harmony import */ var _images_pets_pets_freddie_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/pets/pets-freddie.png */ "./src/assets/images/pets/pets-freddie.png");
+/* harmony import */ var _images_pets_pets_jennifer_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/pets/pets-jennifer.png */ "./src/assets/images/pets/pets-jennifer.png");
+/* harmony import */ var _images_pets_pets_katrine_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/pets/pets-katrine.png */ "./src/assets/images/pets/pets-katrine.png");
+/* harmony import */ var _images_pets_pets_scarlet_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/pets/pets-scarlet.png */ "./src/assets/images/pets/pets-scarlet.png");
+/* harmony import */ var _images_pets_pets_sophia_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/pets/pets-sophia.png */ "./src/assets/images/pets/pets-sophia.png");
+/* harmony import */ var _images_pets_pets_timmy_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/pets/pets-timmy.png */ "./src/assets/images/pets/pets-timmy.png");
+/* harmony import */ var _images_pets_pets_woody_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/pets/pets-woody.png */ "./src/assets/images/pets/pets-woody.png");
+
+
+
+
+
+
+
+
 var petsData = [{
   "name": "Jennifer",
-  "img": "./assets/images/pets-jennifer.png",
+  "img": "".concat(_images_pets_pets_jennifer_png__WEBPACK_IMPORTED_MODULE_2__),
   "type": "Dog",
   "breed": "Labrador",
   "description": "Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.",
@@ -24,7 +40,7 @@ var petsData = [{
   "parasites": ["none"]
 }, {
   "name": "Sophia",
-  "img": "./assets/images/pets-sophia.png",
+  "img": "".concat(_images_pets_pets_sophia_png__WEBPACK_IMPORTED_MODULE_5__),
   "type": "Dog",
   "breed": "Shih tzu",
   "description": "Sophia here and I'm looking for my forever home to live out the best years of my life. I am full of energy. Everyday I'm learning new things, like how to walk on a leash, go potty outside, bark and play with toys and I still need some practice.",
@@ -34,7 +50,7 @@ var petsData = [{
   "parasites": ["none"]
 }, {
   "name": "Woody",
-  "img": "./assets/images/pets-woody.png",
+  "img": "".concat(_images_pets_pets_woody_png__WEBPACK_IMPORTED_MODULE_7__),
   "type": "Dog",
   "breed": "Golden Retriever",
   "description": "Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training. Woody will be happier when he finds a new family that can spend a lot of time with him.",
@@ -44,7 +60,7 @@ var petsData = [{
   "parasites": ["none"]
 }, {
   "name": "Scarlett",
-  "img": "./assets/images/pets-scarlet.png",
+  "img": "".concat(_images_pets_pets_scarlet_png__WEBPACK_IMPORTED_MODULE_4__),
   "type": "Dog",
   "breed": "Jack Russell Terrier",
   "description": "Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.",
@@ -54,7 +70,7 @@ var petsData = [{
   "parasites": ["none"]
 }, {
   "name": "Katrine",
-  "img": "./assets/images/pets-katrine.png",
+  "img": "".concat(_images_pets_pets_katrine_png__WEBPACK_IMPORTED_MODULE_3__),
   "type": "Cat",
   "breed": "British Shorthair",
   "description": "Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one. She is picky about her affection. She loves cuddles and to stretch into your hands for a deeper relaxations.",
@@ -64,7 +80,7 @@ var petsData = [{
   "parasites": ["none"]
 }, {
   "name": "Timmy",
-  "img": "./assets/images/pets-timmy.png",
+  "img": "".concat(_images_pets_pets_timmy_png__WEBPACK_IMPORTED_MODULE_6__),
   "type": "Cat",
   "breed": "British Shorthair",
   "description": "Timmy is an adorable grey british shorthair male. He loves to play and snuggle. He is neutered and up to date on age appropriate vaccinations. He can be chatty and enjoys being held. Timmy has a lot to say and wants a person to share his thoughts with.",
@@ -74,7 +90,7 @@ var petsData = [{
   "parasites": ["none"]
 }, {
   "name": "Freddie",
-  "img": "./assets/images/pets-freddie.png",
+  "img": "".concat(_images_pets_pets_freddie_png__WEBPACK_IMPORTED_MODULE_1__),
   "type": "Cat",
   "breed": "British Shorthair",
   "description": "Freddie is a little shy at first, but very sweet when he warms up. He likes playing with shoe strings and bottle caps. He is quick to learn the rhythms of his human’s daily life. Freddie has bounced around a lot in his life, and is looking to find his forever home.",
@@ -84,7 +100,7 @@ var petsData = [{
   "parasites": ["none"]
 }, {
   "name": "Charly",
-  "img": "./assets/images/pets-charly.png",
+  "img": "".concat(_images_pets_pets_charly_png__WEBPACK_IMPORTED_MODULE_0__),
   "type": "Dog",
   "breed": "Jack Russell Terrier",
   "description": "This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.",
@@ -172,6 +188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
 /* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _icons_close_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../icons/close.svg */ "./src/assets/icons/close.svg");
 
 
 
@@ -184,6 +201,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 var PetCard = /*#__PURE__*/_createClass(function PetCard(parentElem) {
   var _this = this;
@@ -208,7 +227,7 @@ var PetCard = /*#__PURE__*/_createClass(function PetCard(parentElem) {
     var nav = document.querySelector('.header__nav');
     var elem = document.createElement('div');
     elem.classList.add('popup__inner');
-    elem.innerHTML = "\n    <div class=\"popup__close\">\n    <img class=\"popup__close-btn\" src=\"./assets/icons/close.svg\" alt=\"Close\">\n    </div>\n    <div class=\"popup__wrapper\">\n    <div class=\"popup__left-item\">\n    <img class=\"popup__image\" src=".concat(_this.imgSrc, " alt=").concat(_this.breed, ">\n    </div>\n    <div class=\"popup__right-item\">\n    <h3 class=\"popup__title\">").concat(_this.name, "</h3>\n    <h4 class=\"popup__subtitle\">").concat(_this.type, " - ").concat(_this.breed, "</h4>\n    <p class=\"popup__descr\">").concat(_this.descr, "</p>\n    <ul class=\"popup__list\">\n    <li class=\"popup__list-item\"><span>Age</span> ").concat(_this.age, "</li>\n    <li class=\"popup__list-item\"><span>Inoculations:</span> ").concat(_this.inoculations, "</li>\n    <li class=\"popup__list-item\"><span>Diseases:</span> ").concat(_this.diseases, "</li>\n    <li class=\"popup__list-item\"><span>Parasites:</span> ").concat(_this.parasites, "</li>\n    </ul>\n    </div>\n    </div>");
+    elem.innerHTML = "\n    <div class=\"popup__close\">\n    <img class=\"popup__close-btn\" src=".concat(_icons_close_svg__WEBPACK_IMPORTED_MODULE_4__, " alt=\"Close\">\n    </div>\n    <div class=\"popup__wrapper\">\n    <div class=\"popup__left-item\">\n    <img class=\"popup__image\" src=").concat(_this.imgSrc, " alt=").concat(_this.breed, ">\n    </div>\n    <div class=\"popup__right-item\">\n    <h3 class=\"popup__title\">").concat(_this.name, "</h3>\n    <h4 class=\"popup__subtitle\">").concat(_this.type, " - ").concat(_this.breed, "</h4>\n    <p class=\"popup__descr\">").concat(_this.descr, "</p>\n    <ul class=\"popup__list\">\n    <li class=\"popup__list-item\"><span>Age</span> ").concat(_this.age, "</li>\n    <li class=\"popup__list-item\"><span>Inoculations:</span> ").concat(_this.inoculations, "</li>\n    <li class=\"popup__list-item\"><span>Diseases:</span> ").concat(_this.diseases, "</li>\n    <li class=\"popup__list-item\"><span>Parasites:</span> ").concat(_this.parasites, "</li>\n    </ul>\n    </div>\n    </div>");
     popup.append(elem);
 
     _this.overlay.classList.add('overlay--active');
@@ -4980,7 +4999,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/icons/close.svg";
+module.exports = __webpack_require__.p + "./assets/icons/close.svg";
 
 /***/ }),
 
@@ -4991,7 +5010,7 @@ module.exports = __webpack_require__.p + "assets/icons/close.svg";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/pets-charly.png";
+module.exports = __webpack_require__.p + "./assets/images/pets-charly.png";
 
 /***/ }),
 
@@ -5002,7 +5021,7 @@ module.exports = __webpack_require__.p + "assets/images/pets-charly.png";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/pets-freddie.png";
+module.exports = __webpack_require__.p + "./assets/images/pets-freddie.png";
 
 /***/ }),
 
@@ -5013,7 +5032,7 @@ module.exports = __webpack_require__.p + "assets/images/pets-freddie.png";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/pets-jennifer.png";
+module.exports = __webpack_require__.p + "./assets/images/pets-jennifer.png";
 
 /***/ }),
 
@@ -5024,7 +5043,7 @@ module.exports = __webpack_require__.p + "assets/images/pets-jennifer.png";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/pets-katrine.png";
+module.exports = __webpack_require__.p + "./assets/images/pets-katrine.png";
 
 /***/ }),
 
@@ -5035,7 +5054,7 @@ module.exports = __webpack_require__.p + "assets/images/pets-katrine.png";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/pets-scarlet.png";
+module.exports = __webpack_require__.p + "./assets/images/pets-scarlet.png";
 
 /***/ }),
 
@@ -5046,7 +5065,7 @@ module.exports = __webpack_require__.p + "assets/images/pets-scarlet.png";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/pets-sophia.png";
+module.exports = __webpack_require__.p + "./assets/images/pets-sophia.png";
 
 /***/ }),
 
@@ -5057,7 +5076,7 @@ module.exports = __webpack_require__.p + "assets/images/pets-sophia.png";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/pets-timmy.png";
+module.exports = __webpack_require__.p + "./assets/images/pets-timmy.png";
 
 /***/ }),
 
@@ -5068,7 +5087,7 @@ module.exports = __webpack_require__.p + "assets/images/pets-timmy.png";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "assets/images/pets-woody.png";
+module.exports = __webpack_require__.p + "./assets/images/pets-woody.png";
 
 /***/ })
 
@@ -5169,24 +5188,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_js_Cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/js/Cards */ "./src/assets/js/Cards.js");
 /* harmony import */ var _assets_js_Burger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/js/Burger */ "./src/assets/js/Burger.js");
 /* harmony import */ var _assets_js_Slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/js/Slider */ "./src/assets/js/Slider.js");
-/* harmony import */ var _assets_images_pets_pets_charly_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/images/pets/pets-charly.png */ "./src/assets/images/pets/pets-charly.png");
-/* harmony import */ var _assets_images_pets_pets_freddie_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/images/pets/pets-freddie.png */ "./src/assets/images/pets/pets-freddie.png");
-/* harmony import */ var _assets_images_pets_pets_jennifer_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/images/pets/pets-jennifer.png */ "./src/assets/images/pets/pets-jennifer.png");
-/* harmony import */ var _assets_images_pets_pets_katrine_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/images/pets/pets-katrine.png */ "./src/assets/images/pets/pets-katrine.png");
-/* harmony import */ var _assets_images_pets_pets_scarlet_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../assets/images/pets/pets-scarlet.png */ "./src/assets/images/pets/pets-scarlet.png");
-/* harmony import */ var _assets_images_pets_pets_sophia_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../assets/images/pets/pets-sophia.png */ "./src/assets/images/pets/pets-sophia.png");
-/* harmony import */ var _assets_images_pets_pets_timmy_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../assets/images/pets/pets-timmy.png */ "./src/assets/images/pets/pets-timmy.png");
-/* harmony import */ var _assets_images_pets_pets_woody_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../assets/images/pets/pets-woody.png */ "./src/assets/images/pets/pets-woody.png");
-/* harmony import */ var _assets_icons_close_svg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../assets/icons/close.svg */ "./src/assets/icons/close.svg");
-
-
-
-
-
-
-
-
-
 
 
 

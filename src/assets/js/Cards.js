@@ -1,3 +1,4 @@
+import close from '../icons/close.svg'
 export default class PetCard {
   constructor(parentElem, { img: imgSrc, name, type, breed, description: descr, age, inoculations, diseases, parasites } = {}) {
     this.parentElem = document.querySelector(parentElem);
@@ -21,10 +22,11 @@ export default class PetCard {
     const header = document.querySelector('.header');
     const nav = document.querySelector('.header__nav')
     const elem = document.createElement('div')
+
     elem.classList.add('popup__inner')
     elem.innerHTML = `
     <div class="popup__close">
-    <img class="popup__close-btn" src="./assets/icons/close.svg" alt="Close">
+    <img class="popup__close-btn" src=${close} alt="Close">
     </div>
     <div class="popup__wrapper">
     <div class="popup__left-item">
@@ -99,6 +101,7 @@ export default class PetCard {
         this.renderPopup()
       }
     })
+
     this.parentElem.append(card)
   }
 }

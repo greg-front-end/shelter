@@ -70,36 +70,32 @@ function slider({ slide, pageActive, firstPageArrow, lastPageArrow, nextArrow, p
       pets3x1[0].forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
     }
   })
-  window.addEventListener('resize', () => {
-    size = chekcScreenSize()
-    totalPage = 48 / size
-
-    if (size === 8) {
-      setTimeout(() => {
-        itemVisible.innerHTML = ''
-        pets8x2[0].forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
-        pageNumber.textContent = 1
-        page = 0
-        toggleDisableLeftBtns()
-      }, 500)
-    } else if (size === 6) {
-      setTimeout(() => {
-        itemVisible.innerHTML = ''
-        pets6x2[0].forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
-        pageNumber.textContent = 1
-        page = 0
-        toggleDisableLeftBtns()
-      }, 500)
-    } else {
-      setTimeout(() => {
-        itemVisible.innerHTML = ''
-        pets3x1[0].forEach(obj => new PetCard('.slider__item-visible', obj).renderCard())
-        pageNumber.textContent = 1
-        page = 0
-        toggleDisableLeftBtns()
-      }, 500)
-    }
-  })
+  // window.addEventListener('resize', () => {
+  //   size = chekcScreenSize()
+  //   if (size === 8) {
+  //     setTimeout(() => {
+  //       itemVisible.innerHTML = ''
+  //       location.reload();
+  //       pageNumber.textContent = 1
+  //       page = 0
+  //       toggleDisableLeftBtns()
+  //     })
+  //   } else if (size === 6) {
+  //     setTimeout(() => {
+  //       itemVisible.innerHTML = ''
+  //       pageNumber.textContent = 1
+  //       page = 0
+  //       toggleDisableLeftBtns()
+  //     })
+  //   } else if (size === 3) {
+  //     setTimeout(() => {
+  //       itemVisible.innerHTML = ''
+  //       pageNumber.textContent = 1
+  //       page = 0
+  //       toggleDisableLeftBtns()
+  //     })
+  //   }
+  // })
 
   const toggleDisableLeftBtns = () => {
     if (page < 1) {

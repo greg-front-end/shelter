@@ -36,7 +36,7 @@ function getHtmlTemplate() {
       (template) =>
         new HtmlWebpackPlugin({
           template: template.path,
-          chunks: [template.name.toString()], 
+          chunks: [template.name.toString()],
           filename: `${template.name}.html`,
         })
     );
@@ -66,7 +66,7 @@ const plugins = [
   //   server: { baseDir: ['public'] }
   // })
   new CopyPlugin({
-    patterns: [{from: 'src/assets/data', to: 'assets/data'}]
+    patterns: [{ from: 'src/assets/data', to: 'assets/data' }]
   })
 ];
 
@@ -119,7 +119,7 @@ module.exports = {
     assetModuleFilename: "[hash].[ext][query]",
     clean: true,
   },
-  
+
   module: {
     rules: [
       {
@@ -131,7 +131,7 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { 
+            options: {
               publicPath: "",
             },
           },
@@ -144,7 +144,7 @@ module.exports = {
         test: /\.svg$/i,
         type: 'asset/resource',
         generator: {
-          filename: `assets/icons/${filename('[ext]')}`
+          filename: `./assets/icons/${filename('[ext]')}`
         },
         use: 'svgo-loader',
       },
@@ -152,14 +152,14 @@ module.exports = {
         test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/i,
         type: 'asset/resource',
         generator: {
-          filename: `assets/images/${filename('[ext]')}`
+          filename: `./assets/images/${filename('[ext]')}`
         }
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: `assets/fonts/${filename('[ext]')}`
+          filename: `./assets/fonts/${filename('[ext]')}`
         }
       },
       {
